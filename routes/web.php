@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/signup', function () {
-    return view('signUp');
-})->name('signUp');
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 
 Auth::routes();

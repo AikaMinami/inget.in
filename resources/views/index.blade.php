@@ -39,8 +39,8 @@
         <!-- Masthead-->
         <header class="masthead" style="padding-top=10px">
             <div class="container">
-                <img src="assets/assets/img/logo-ingetin.png" alt="" width=450px height=450px style="margin-top:50px"><br>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#about">About Us</a>
+                <img src="assets/assets/img/logo-ingetin.png" alt="" width=450px height=450px ><br>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#about" style="color:black">About Us</a>
             </div>
         </header>
         <!-- About-->
@@ -48,27 +48,27 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Our Journey</h3>
                 </div>
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/about/1.jpg" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <h4>February 2021</h4>
+                                <h4 class="subheading">Our Beginnings</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Forming group for this project</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/about/2.jpg" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <h4>March 2021</h4>
+                                <h4 class="subheading">An Idea is Born</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">After validation and research, we decided to making an Inget.In, web based application</p></div>
                         </div>
                     </li>
                     <li>
@@ -154,30 +154,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
-                </div>
             </div>
         </section>
-        <!-- Clients-->
-        <div class="py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/assets/img/logos/envato.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/assets/img/logos/designmodo.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/assets/img/logos/themeforest.jpg" alt="" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/assets/img/logos/creative-market.jpg" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
@@ -306,18 +285,18 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons text_caps-small"></i>
+                                <i class="fas fa-lock text_caps-small"></i>
                             </span>
                             </div>
-                            <input type="password" placeholder="Password..." class="form-control fas fa-lock"></i>" />
+                            <input type="password" placeholder="Password..." class="form-control" />
                         </div>
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons text_caps-small"></i>
+                                <i class="fas fa-lock text_caps-small"></i>
                             </span>
                             </div>
-                            <input type="password" placeholder="Confirm Password..." class="form-control fas fa-lock" />
+                            <input type="password" placeholder="Confirm Password..." class="form-control"/>
                         </div>
                         <br>
                       <!-- If you want to add a checkbox to this form, uncomment this code -->
