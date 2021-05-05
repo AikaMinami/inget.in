@@ -3,25 +3,23 @@
 @section('content')
     <div class="row">
         <div class="d-flex flex-column p-3 bg-light col-sm-2" style="width: 280px; height:auto">
-            <h3 class="fs-4">Settings</h3>
+            <h3 class="fs-4 text-center" style="colour:#1d5430">Settings</h3>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
             <a href="#" class="nav-link active">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                 Account
             </a>
             </li>
             <li>
             <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
                 Notification
             </a>
             </li>
             <li>
             <a href="#" class="nav-link link-dark">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                Reset Data
+                Reset Data 
+                <!-- Nanti bakal ada "are you sure want to reset your data" langsung aja -->
             </a>
             </li>
         </ul>
@@ -33,7 +31,7 @@
             <div class="text-center">
             <img src="assets/assets/img/user.png" alt="" width="200px" height="200px" style="margin-bottom:2rem">
             </div>
-                <table  style="margin-bottom:6rem">
+                <table  style="margin-bottom:3rem">
                     <div class="row">
                         <tr>
                             <td style="width:15%"><h4>Name</h4></td>
@@ -57,6 +55,11 @@
                         </tr>
                     </div>
                 </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <a href="" class="btn btn-danger text-center" style="margin-bottom:0.7rem">Delete Account</a>
             </div>
         </div>
     </div>

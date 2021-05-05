@@ -35,6 +35,10 @@
         .schedule{
             margin-bottom: 3rem;
         }
+
+        input[type=number]{
+            width: 50px;
+        } 
 </style>
     </head>
     <body>

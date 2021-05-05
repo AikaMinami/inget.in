@@ -25,6 +25,10 @@ Route::get('/setting', function () {
     return view('setting');
 })->name('setting');
 
+Route::get('/setting-notif', function () {
+    return view('settingNotification');
+})->name('settingNotif');
+
 
 Auth::routes();
 
