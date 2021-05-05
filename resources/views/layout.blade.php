@@ -21,6 +21,7 @@
             align-items: center;
             font-weight: bold;
             margin-bottom:2rem;
+            margin-top:2rem;
         }
 
         h2::after {
