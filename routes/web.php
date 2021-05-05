@@ -21,6 +21,10 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+Route::get('/setting', function () {
+    return view('setting');
+})->name('setting');
+
 
 Auth::routes();
 

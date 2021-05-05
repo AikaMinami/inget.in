@@ -15,36 +15,71 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="assets/css/styles.css" rel="stylesheet" />
+        <style>
+        h2 {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom:2rem;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            margin-left: 1rem;
+            height: 1px;
+            background-color: #000;
+        }
+
+        .schedule{
+            margin-bottom: 3rem;
+        }
+</style>
     </head>
     <body>
         <!-- Navigation-->
         <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#1f3324" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#48c072" id="mainNav">
             <div class="container">
+                <img src="assets/assets/img/logo-ingetin.png" alt="" class="navbar-brand" width=50px height=50px>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ml-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                            Sign In
-                        </button>
-                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sign-in">Sign In</a></li> -->
+                    <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Home</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Assignment</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Schedule</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
+                        <li class="nav-item">
+                    <!-- <ul class="profile-wrapper">
+                        <li>
+                        user profile 
+                        <div class="profile">
+                            <img src="http://gravatar.com/avatar/0e1e4e5e5c11835d34c0888921e78fd4?s=80" />
+                            <a href="http://swimbi.com" class="name">swimbi.com</a>
+                            
+                             more menu 
+                            <ul class="menu">
+                                <li><a href="#">Edit</a></li>
+                                <li><a href="#">Change Password</a></li>
+                                <li><a href="#">Log out</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul> -->
+                        <a class="nav-link js-scroll-trigger" href="#team"><img src="assets/assets/img/user.png" alt="" width=50px height=50px></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         </div>
         <br><br><br><br><br>
-        <div class="container">
         @yield('content')
-        </div>
         <!-- Footer-->
         <div class="position-sticky">
-            <footer class="footer py-4 fixed-bottom">
+            <footer class="footer py-4">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 text-lg-left">Copyright © Inget.In 2021</div>
