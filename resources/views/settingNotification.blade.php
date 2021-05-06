@@ -18,7 +18,6 @@
                 <li>
                 <a href="#" class="nav-link link-dark">
                     Reset Data 
-                    <!-- Nanti bakal ada "are you sure want to reset your data" langsung aja -->
                 </a>
                 </li>
             </ul>
@@ -27,7 +26,7 @@
         <div class="container col-sm-10">
             <h2>Reminder Notification</h2>
             <div class="float-right">
-                <a href="" class="btn btn-primary text-center" style="margin-right:1rem">Enable Notification</a>
+                <a href="" class="btn btn-info text-center" style="margin-right:1rem">Enable Notification</a>
             </div>
             <div class="container" style="margin-bottom:2rem">
                 <br><br>

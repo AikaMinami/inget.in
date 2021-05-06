@@ -37,9 +37,9 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead" style="padding-top=10px">
-            <div class="container">
-                <img src="assets/assets/img/logo-ingetin.png" alt="" width=450px height=450px ><br>
+        <header class="masthead">
+            <div class="container" style="padding-top:0px">
+                <img src="assets/assets/img/logo-ingetin.png" alt="" width=300px height=300px style="margin-bottom:25px"><br>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#about" style="color:black">About Us</a>
             </div>
         </header>
@@ -169,8 +169,8 @@
                 </div>
             </div>
         </footer>
-        <!-- Portfolio Modals-->
-        <!-- Modal 1-->
+        <!-- Login Modals-->
+        <!-- Modal Sign In-->
         <div class="signin-modal modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true" >
             <div class="modal-dialog">
                 <div class="modal-content"  >
@@ -209,7 +209,6 @@
                             <input type="password" placeholder="Password..." class="form-control " />
                         </div>
                         <br>
-                      <!-- If you want to add a checkbox to this form, uncomment this code -->
                         <div class="row">
                             <div class="checkbox col-md-6 my-3">
                                 <input id="checkboxSignup" type="checkbox">
@@ -236,7 +235,7 @@
                 </div>
             </div>
         </div>
-         <!-- Modal 1-->
+         <!-- Modal Sign Up-->
          <div class="signup-modal modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true" >
             <div class="modal-dialog">
                 <div class="modal-content"  >

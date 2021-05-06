@@ -19,7 +19,6 @@
             <li>
             <a href="#" class="nav-link link-dark">
                 Reset Data 
-                <!-- Nanti bakal ada "are you sure want to reset your data" langsung aja -->
             </a>
             </li>
         </ul>

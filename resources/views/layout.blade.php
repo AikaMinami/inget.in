@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Inget.In</title>
-        <link rel="icon" type="image/x-icon" href="assets/assets/img/logo-ingetin.png" />
+        <link rel="icon" type="image/x-icon" href="assets/assets/img/logo-ingetin.png"/>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -32,8 +32,8 @@
             background-color: #000;
         }
 
-        .schedule{
-            margin-bottom: 3rem;
+        .schedule .timeline{
+            margin-bottom: 6rem;
         }
 
         input[type=number]{
@@ -45,39 +45,22 @@
         <!-- Navigation-->
         <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#48c072" id="mainNav">
-            <div class="container">
-                <img src="assets/assets/img/logo-ingetin.png" alt="" class="navbar-brand" width=50px height=50px>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ml-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Home</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Assignment</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Schedule</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
-                        <li class="nav-item">
-                    <!-- <ul class="profile-wrapper">
-                        <li>
-                        user profile 
-                        <div class="profile">
-                            <img src="http://gravatar.com/avatar/0e1e4e5e5c11835d34c0888921e78fd4?s=80" />
-                            <a href="http://swimbi.com" class="name">swimbi.com</a>
-                            
-                             more menu 
-                            <ul class="menu">
-                                <li><a href="#">Edit</a></li>
-                                <li><a href="#">Change Password</a></li>
-                                <li><a href="#">Log out</a></li>
-                            </ul>
-                        </div>
+            <img src="assets/assets/img/logo-ingetin.png" alt="" class="navbar-brand" width="50px" width="50px">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ml-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Assignment</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#team"><img src="assets/assets/img/user.png" alt="" width=50px height=50px></a>
                     </li>
-                </ul> -->
-                        <a class="nav-link js-scroll-trigger" href="#team"><img src="assets/assets/img/user.png" alt="" width=50px height=50px></a></li>
-                    </ul>
-                </div>
-            </div>
+                </ul>
+            </div>    
         </nav>
         </div>
         <br><br><br><br><br>
