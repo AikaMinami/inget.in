@@ -31,7 +31,7 @@
             <div class="container" style="margin-bottom:2rem">
                 <br><br>
                 <p style="font-size:24pt; font-family:Montserrat">Assignment</p>
-                <form >
+                <form>
                     <div class="form-group row">
                         <label for="reminderAssignment" class="col-sm-3 col-form-label"><p style="font-size:16pt; font-family:Montserrat">Remind Me :</p></label>
                         <div class="col" style="width=50px">

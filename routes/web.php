@@ -29,6 +29,9 @@ Route::get('/setting-notif', function () {
     return view('settingNotification');
 })->name('settingNotif');
 
+Route::get('/setting-reset', function () {
+    return view('settingResetData');
+})->name('settingResetData');
 
 Auth::routes();
 
