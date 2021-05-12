@@ -57,7 +57,19 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Schedule</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#team"><img src="assets/assets/img/user.png" alt="" width=50px height=50px></a>
+                        <img src="assets/assets/img/user.png" width=50px height=50px class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>                            
+                        </div>
                     </li>
                 </ul>
             </div>    
