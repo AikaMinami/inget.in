@@ -43,41 +43,44 @@
     </head>
     <body>
         <!-- Navigation-->
-        <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#48c072" id="mainNav">
-            <img src="assets/assets/img/logo-ingetin.png" alt="" class="navbar-brand" width="50px" width="50px">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ml-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Assignment</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Schedule</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#team"><img src="assets/assets/img/user.png" alt="" width=50px height=50px></a>
-                    </li>
-                </ul>
-            </div>    
-        </nav>
-        </div>
-        <br><br><br><br><br>
-        @yield('content')
-        <!-- Footer-->
-        <div class="position-sticky">
-            <footer class="footer py-4">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 text-lg-left">Copyright © Inget.In 2021</div>
-                        <div class="col-lg-6 text-lg-right">
-                            <a class="mr-3" href="#!">Privacy Policy</a>
-                            <a href="#!">Terms of Use</a>
+        <div class="container position-relative" style="min-height: 100%;">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#48c072" id="mainNav">
+                    <img src="assets/assets/img/logo-ingetin.png" alt="" class="navbar-brand" width="50px" width="50px">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+                        <i class="fas fa-bars ml-1"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Home</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Assignment</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Schedule</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="#team"><img src="assets/assets/img/user.png" alt="" width=50px height=50px></a>
+                            </li>
+                        </ul>
+                    </div>    
+                </nav>
+            </div>
+            <br><br><br><br><br>
+            @yield('content')
+            <!-- Footer-->
+            <div class="position-absolute">
+                <footer class="footer-collapse py-4 fixed-bottom">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 text-lg-left">Copyright © Inget.In 2021</div>
+                            
+                            <div class="col-lg-6 text-lg-right">
+                                <a class="mr-3" href="#!">Privacy Policy</a>
+                                <a href="#!">Terms of Use</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

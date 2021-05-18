@@ -31,7 +31,6 @@
                         <button class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
                             Sign In
                         </button>
-                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sign-in">Sign In</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -195,7 +194,7 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-user-circle"></i>
                             </span>
                             </div>
                             <input type="text" class="form-control" placeholder="Username...">
@@ -260,7 +259,7 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-user-circle"></i>
                             </span>
                             </div>
                             <input type="text" class="form-control" placeholder="Name...">
@@ -268,18 +267,18 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-user-circle"></i>
                             </span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Email  ...">
+                            <input type="text" class="form-control" placeholder="Username...">
                         </div>
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-envelope"></i>
                             </span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Username...">
+                            <input type="text" class="form-control" placeholder="Email  ...">
                         </div>
                         <div class="input-group no-border">
                             <div class="input-group-prepend">

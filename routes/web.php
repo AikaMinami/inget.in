@@ -33,6 +33,10 @@ Route::get('/setting-reset', function () {
     return view('settingResetData');
 })->name('settingResetData');
 
+Route::get('/assignment', function () {
+    return view('assignment');
+})->name('assignment');
+
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
