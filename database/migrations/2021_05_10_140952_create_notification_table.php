@@ -17,8 +17,10 @@ class CreateNotificationTable extends Migration
             $table->id();
             $table->string('username');
             $table->foreign('username')->references('username')->on('users');
-            $table->integer('remind_schedule_at');
             $table->integer('remind_assignment_at');
+            $table->enum('remind_assignment_format', ['Minutes', 'Hours']);
+            $table->integer('remind_schedule_at');
+            $table->enum('remind_schedule_format', ['Minutes', 'Hours']);
             $table->timestamps();
         });
     }

@@ -6,17 +6,17 @@
             <h3 class="fs-4 text-center" style="colour:#1d5430">Settings</h3>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{ route('account') }}" class="nav-link link-dark">
                     Account
                 </a>
                 </li>
                 <li>
-                <a href="#" class="nav-link link-dark">
+                <a href="{{ route('notification') }}" class="nav-link link-dark">
                     Notification
                 </a>
                 </li>
                 <li>
-                <a href="#" class="nav-link link-dark">
+                <a href="{{ route('reset_data') }}" class="nav-link active">
                     Reset Data 
                 </a>
                 </li>
@@ -44,6 +44,54 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>        
+    </div>
+
+    <!-- Reset Assignment Modal -->
+    <div class="modal fade" id="resetAssignment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to reset the assignments?
+            </div>
+            <div class="modal-footer">                
+                <form action="{{ route('assignment.destroy', $user->username) }}" method="POST">
+                    @csrf
+                    @method('DELETE')                    
+                    <button type="submit" class="btn btn-danger">Delete</button>                    
+                </form>                
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Schedule Modal -->
+    <div class="modal fade" id="resetSchedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to reset the schedules?
+            </div>
+            <div class="modal-footer">                
+                <form action="{{ route('schedule.destroy', $user->username) }}" method="POST">
+                    @csrf
+                    @method('DELETE')                    
+                    <button type="submit" class="btn btn-danger">Delete</button>                    
+                </form>                
+            </div>
             </div>
         </div>
     </div>
