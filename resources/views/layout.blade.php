@@ -89,8 +89,8 @@
                             <a href="#!">Terms of Use</a>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
         </div>
         </div>
         <!-- Bootstrap core JS-->
