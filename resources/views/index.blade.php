@@ -33,7 +33,6 @@
                         <button class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
                             Sign In
                         </button>
-                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sign-in">Sign In</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -283,7 +282,7 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-user-circle"></i>
                             </span>
                             </div>                            
                             <input id="name" type="text" placeholder="Name..." class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -296,7 +295,7 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-user-circle"></i>
                             </span>
                             </div>
                             <input id="email" type="email" placeholder="Email..." class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -309,7 +308,7 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-envelope"></i>
                             </span>
                             </div>                            
                             <input id="username" type="text" placeholder="Username..." class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required>

@@ -32,6 +32,9 @@ Route::prefix('settings')->group(function() {
     Route::get('/reset-data', [SettingController::class, 'resetData'])->name('reset_data');
 });
 
-
 Route::resource('user', UserController::class);
 Route::resource('notification', NotificationController::class);
+
+Route::get('/assignment', function () {
+    return view('assignment');
+})->name('assignment');
