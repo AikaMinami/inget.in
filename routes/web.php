@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,25 +18,20 @@ use App\Http\Controllers\NotificationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/landing-page', function () {
     return view('index');
 })->name('landing-page');
-
-Auth::routes();
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index']);
+Route::resource('user', UserController::class);
+Route::resource('schedule', ScheduleController::class);
+Route::resource('assignment', AssignmentController::class);
 Route::prefix('settings')->group(function() {
     Route::redirect('/', '/settings/account')->name('settings');
     Route::get('/account', [SettingController::class, 'account'])->name('account');    
     Route::get('/notification', [SettingController::class, 'notification'])->name('notification');
+    Route::put('/notification/{id}', [NotificationController::class, 'update'])->name('notification.update');
     Route::get('/reset-data', [SettingController::class, 'resetData'])->name('reset_data');
 });
-
-Route::resource('user', UserController::class);
-Route::resource('notification', NotificationController::class);
-
-Route::get('/assignment', function () {
-    return view('assignment');
-})->name('assignment');

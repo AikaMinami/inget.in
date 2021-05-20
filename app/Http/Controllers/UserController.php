@@ -78,7 +78,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $username)
+    public function update(Request $request, $id)
     {
         // validate
         $request->validate([
@@ -88,7 +88,7 @@ class UserController extends Controller
             'password' => 'required',            
         ]);
 
-        $user = User::where('username', $username)->first();
+        $user = User::where('id', $id)->first();
         $user->name = $request->get('name');
         $user->username = $request->get('username');
         $user->email = $request->get('email');
@@ -99,9 +99,10 @@ class UserController extends Controller
             $user->save();   
         }        
 
+        // dd($user);
         // redirect after add data
         return redirect()->route('account')
-            ->with('success', 'Student Successfully Updated');
+            ->with('success', 'User Successfully Updated');
     }
 
     /**
@@ -110,10 +111,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($username)
+    public function destroy($id)
     {
-        User::where('username', $username)->first()->delete();
+        User::where('id', $id)->first()->delete();
         return redirect()->route('home')
-            ->with('success', 'Student Successfully Deleted');
+            ->with('success', 'User Successfully Deleted');
     }
 }

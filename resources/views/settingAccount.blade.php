@@ -81,7 +81,7 @@
                             </ul>
                         </div>
                         @endif
-                        <form method="post" action="{{ route('user.update', $user->username) }}" id="myForm">
+                        <form method="post" action="{{ route('user.update', $user->id) }}" id="myForm">
                             @csrf
                             @method('PUT')
                             <div class="form-group">

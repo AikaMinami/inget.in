@@ -18,15 +18,14 @@ class SettingController extends Controller
 
     public function account()
     {        
-        $user = Auth::user();        
-        //dd($user);
+        $user = Auth::user();                
         return view('settingAccount', ['user' => $user]);
     }
 
     public function notification()
     {        
         $user = Auth::user();                
-        $notification = Notification::where('username', $user->username)->first();                   
+        $notification = Notification::where('user_id', $user->id)->first();                   
         return view('settingNotification', ['notification' => $notification]);
     }
 
