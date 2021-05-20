@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +21,20 @@ Route::get('/landing-page', function () {
     return view('index');
 })->name('landing-page');
 
-Route::get('/setting', function () {
-    return view('setting');
-})->name('setting');
+Auth::routes();
 
-Route::get('/setting-notif', function () {
-    return view('settingNotification');
-})->name('settingNotif');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
+Route::prefix('settings')->group(function() {
+    Route::redirect('/', '/settings/account')->name('settings');
+    Route::get('/account', [SettingController::class, 'account'])->name('account');    
+    Route::get('/notification', [SettingController::class, 'notification'])->name('notification');
+    Route::get('/reset-data', [SettingController::class, 'resetData'])->name('reset_data');
+});
 
-Route::get('/setting-reset', function () {
-    return view('settingResetData');
-})->name('settingResetData');
+Route::resource('user', UserController::class);
+Route::resource('notification', NotificationController::class);
 
 Route::get('/assignment', function () {
     return view('assignment');
 })->name('assignment');
-
-Auth::routes();
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
