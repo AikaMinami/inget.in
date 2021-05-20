@@ -43,6 +43,7 @@
     </head>
     <body>
         <!-- Navigation-->
+        <div class="container position-relative" style="min-height: 100%;">
         <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#48c072" id="mainNav">
             <img src="{{ asset('assets/assets/img/logo-ingetin.png') }}" alt="" class="navbar-brand" width="50px" width="50px">
@@ -79,7 +80,7 @@
         @yield('content')
         <!-- Footer-->
         <div class="position-sticky">
-            <footer class="footer py-4">
+             <footer class="footer-collapse py-4">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 text-lg-left">Copyright © Inget.In 2021</div>
@@ -90,6 +91,7 @@
                     </div>
                 </div>
             </footer>
+        </div>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

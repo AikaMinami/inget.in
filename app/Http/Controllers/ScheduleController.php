@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use DB;
+use App\Models\User;
+use App\Models\Schedule;
+
 
 class ScheduleController extends Controller
 {
@@ -79,6 +84,8 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Schedule::where('user_id', $id)->delete();
+        return redirect()->route('reset_data')
+            ->with('success', 'Assignment Successfully Deleted');
     }
 }

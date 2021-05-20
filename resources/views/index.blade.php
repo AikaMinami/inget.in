@@ -32,8 +32,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
                             Sign In
-                        </button>
-                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sign-in">Sign In</a></li> -->
+                        </button>                        
                     </ul>
                 </div>
             </div>
@@ -198,7 +197,7 @@
                             <div class="input-group no-border">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <i class="now-ui-icons users_circle-08"></i>
+                                        <i class="fas fa-user-circle"></i>
                                     </span>
                                 </div>
                                 <input id="username" type="username" placeholder="Username..." class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
@@ -283,7 +282,7 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-user-circle"></i>
                             </span>
                             </div>                            
                             <input id="name" type="text" placeholder="Name..." class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -296,11 +295,11 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-user-circle"></i>
                             </span>
                             </div>
-                            <input id="email" type="email" placeholder="Email..." class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                @error('email')
+                            <input id="username" type="text" placeholder="Username..." class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required>
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -309,15 +308,15 @@
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
-                                <i class="now-ui-icons users_circle-08"></i>
+                                <i class="fas fa-envelope"></i>
                             </span>
-                            </div>                            
-                            <input id="username" type="text" placeholder="Username..." class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required>
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            </div>                                            
+                            <input id="email" type="email" placeholder="Email..." class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>                                            
                         <div class="input-group no-border">
                             <div class="input-group-prepend">

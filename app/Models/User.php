@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model; 
 use App\Models\Notification;
+use App\Models\Assignment;
+use App\Models\Schedule;
 
 class User extends Authenticatable
 {
@@ -48,6 +50,16 @@ class User extends Authenticatable
 
     public function notification() 
     {
-        return $this->belongsTo(Notification::class);
+        return $this->hasOne(Notification::class);
+    }
+
+    public function assignment() 
+    {
+        return $this->hasMany(Assignment::class);
+    }
+
+    public function schedule() 
+    {
+        return $this->hasMany(Schedule::class);
     }
 }
