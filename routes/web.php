@@ -17,6 +17,7 @@ Route::get('/landing-page', function () {
     return view('index');
 })->name('landing-page');
 
+//Setting section
 Route::get('/setting', function () {
     return view('setting');
 })->name('setting');
@@ -29,9 +30,25 @@ Route::get('/setting-reset', function () {
     return view('settingResetData');
 })->name('settingResetData');
 
+
+// assignment CRUD
 Route::get('/assignment', function () {
     return view('assignment');
 })->name('assignment');
+Route::get('/assignment-create', function () {
+    return view('assignmentCreate');
+})->name('assignment-create');
+Route::get('/assignment-detail', function () {
+    return view('assignmentDetail');
+})->name('assignment-detail');
+Route::get('/assignment-edit', function () {
+    return view('assignmentEdit');
+})->name('assignment-edit');
+
+// New Password Section
+Route::get('/email-confirmation', function () {
+    return view('confirmEmail');
+})->name('confirmEmail');
 
 Auth::routes();
 

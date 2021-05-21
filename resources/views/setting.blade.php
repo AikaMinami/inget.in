@@ -7,17 +7,17 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="{{ route('setting') }}" class="nav-link active">
                 Account
             </a>
             </li>
             <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('settingNotif') }}" class="nav-link link-dark">
                 Notification
             </a>
             </li>
             <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="{{ route('settingResetData') }}" class="nav-link link-dark">
                 Reset Data 
             </a>
             </li>

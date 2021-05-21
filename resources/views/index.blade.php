@@ -197,7 +197,7 @@
                             <div class="input-group no-border">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <i class="now-ui-icons users_circle-08"></i>
+                                        <i class="fas fa-user-circle"></i>
                                     </span>
                                 </div>
                                 <input id="username" type="username" placeholder="Username..." class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
