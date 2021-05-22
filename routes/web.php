@@ -49,6 +49,9 @@ Route::get('/assignment-edit', function () {
 Route::get('/email-confirmation', function () {
     return view('confirmEmail');
 })->name('confirmEmail');
+Route::get('/new-password', function () {
+    return view('newPassword');
+})->name('newPassword');
 
 Auth::routes();
 
