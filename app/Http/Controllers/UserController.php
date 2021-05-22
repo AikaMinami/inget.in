@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
 use DB;
 use App\Models\User;
-use App\Models\Schedule;
+use Illuminate\Support\Facades\Hash;
+use Auth;
 
-
-class ScheduleController extends Controller
+class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +23,9 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();        
+        //dd($user);
+        return view('settingAccount', ['user' => $user]);
     }
 
     /**
@@ -73,7 +80,29 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // validate
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',            
+        ]);
+
+        $user = User::where('id', $id)->first();
+        $user->name = $request->get('name');
+        $user->username = $request->get('username');
+        $user->email = $request->get('email');
+        $current_password = $user->password;           
+        if(!Hash::check($request->get('password'), $current_password))
+        {                                   
+            $user->password = Hash::make($request->get('password'));            
+            $user->save();   
+        }        
+
+        // dd($user);
+        // redirect after add data
+        return redirect()->route('account')
+            ->with('success', 'User Successfully Updated');
     }
 
     /**
@@ -84,8 +113,8 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        Schedule::where('user_id', $id)->delete();
-        return redirect()->route('reset_data')
-            ->with('success', 'Assignment Successfully Deleted');
+        User::where('id', $id)->first()->delete();
+        return redirect()->route('home')
+            ->with('success', 'User Successfully Deleted');
     }
 }

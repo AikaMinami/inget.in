@@ -14,11 +14,13 @@ class CreateNotificationTable extends Migration
     public function up()
     {
         Schema::create('notification', function (Blueprint $table) {
-            $table->id();
-            $table->string('username');
-            $table->foreign('username')->references('username')->on('users');
-            $table->integer('remind_schedule_at');
+            $table->id();            
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');            
             $table->integer('remind_assignment_at');
+            $table->enum('remind_assignment_format', ['Minutes', 'Hours']);
+            $table->integer('remind_schedule_at');
+            $table->enum('remind_schedule_format', ['Minutes', 'Hours']);
             $table->timestamps();
         });
     }

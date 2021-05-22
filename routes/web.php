@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,37 +19,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/landing-page', function () {
-    return view('index');
-})->name('landing-page');
+Auth::routes();
 
-//Setting section
-Route::get('/setting', function () {
-    return view('setting');
-})->name('setting');
-
-Route::get('/setting-notif', function () {
-    return view('settingNotification');
-})->name('settingNotif');
-
-Route::get('/setting-reset', function () {
-    return view('settingResetData');
-})->name('settingResetData');
-
-
-// assignment CRUD
-Route::get('/assignment', function () {
-    return view('assignment');
-})->name('assignment');
-Route::get('/assignment-create', function () {
-    return view('assignmentCreate');
-})->name('assignment-create');
-Route::get('/assignment-detail', function () {
-    return view('assignmentDetail');
-})->name('assignment-detail');
-Route::get('/assignment-edit', function () {
-    return view('assignmentEdit');
-})->name('assignment-edit');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
+Route::resource('user', UserController::class);
+Route::resource('schedule', ScheduleController::class);
+Route::resource('assignment', AssignmentController::class);
+Route::prefix('settings')->group(function() {
+    Route::redirect('/', '/settings/account')->name('settings');
+    Route::get('/account', [SettingController::class, 'account'])->name('account');    
+    Route::get('/notification', [SettingController::class, 'notification'])->name('notification');
+    Route::put('/notification/{id}', [NotificationController::class, 'update'])->name('notification.update');
+    Route::get('/reset-data', [SettingController::class, 'resetData'])->name('reset_data');
+});
 
 // New Password Section
 Route::get('/email-confirmation', function () {
@@ -52,7 +42,3 @@ Route::get('/email-confirmation', function () {
 Route::get('/new-password', function () {
     return view('newPassword');
 })->name('newPassword');
-
-Auth::routes();
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

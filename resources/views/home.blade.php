@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container"><br><br>
-    <h1>Welcome, {{ $user->name }} !</h1> <br>
+    <h1>Welcome, {{ $user->name }}! </h1> <br>
 
     <h2>Today's Schedule</h2>
     <div class="container">

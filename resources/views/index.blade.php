@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Inget.In</title>
-        <link rel="icon" type="image/x-icon" href="assets/assets/img/logo-ingetin.png" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/assets/img/logo-ingetin.png') }}" />
         <script src="{{ asset('js/app.js') }}" defer></script>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
                             Sign In
-                        </button>
+                        </button>                        
                     </ul>
                 </div>
             </div>
@@ -298,8 +298,8 @@
                                 <i class="fas fa-user-circle"></i>
                             </span>
                             </div>
-                            <input id="email" type="email" placeholder="Email..." class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                @error('email')
+                            <input id="username" type="text" placeholder="Username..." class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required>
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -310,8 +310,13 @@
                             <span class="input-group-text">
                                 <i class="fas fa-envelope"></i>
                             </span>
-                            </div>
-                            <input id="username" type="text" placeholder="Username..." class="form-control" name="username" required>                            
+                            </div>                                            
+                            <input id="email" type="email" placeholder="Email..." class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>                                            
                         <div class="input-group no-border">
                             <div class="input-group-prepend">
