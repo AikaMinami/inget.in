@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Assignment</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('assignment.index') }}">Assignment</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Schedule</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
                     <li class="nav-item">
