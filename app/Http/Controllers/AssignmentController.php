@@ -35,7 +35,8 @@ class AssignmentController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();                
+        return view('assignmentCreate', ['user' => $user]);
     }
 
     /**
@@ -46,7 +47,35 @@ class AssignmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'course' => 'required',
+            'due_time' => 'required',
+            'due_date' => 'required',
+            'level' => 'required',
+            'estimation' => 'required',
+        ]);
+        
+        $authUser = Auth::user();             
+        $assignment = new Assignment;
+        $assignment->user_id = $authUser->id;
+        $assignment->name = $request->get('name');
+        $assignment->course = $request->get('course');
+        $assignment->description = $request->get('description');
+        $assignment->submit_location = $request->get('submit_location');
+        $assignment->due_date = $request->get('due_date');
+        $assignment->due_time = $request->get('due_time');
+        $assignment->level = $request->get('level');
+        $assignment->estimation = $request->get('estimation');        
+
+        $user = new User;
+        $user->id = $assignment->user_id;
+        $assignment->user()->associate($user);
+        $assignment->save();         
+        
+        // redirect after add data
+        return redirect()->route('assignment.index')
+            ->with('success', 'Assignment Successfully Added');
     }
 
     /**
@@ -56,8 +85,9 @@ class AssignmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {        
+        $assignment = Assignment::find($id);
+        return view('assignmentDetail', ['assignment' => $assignment]);
     }
 
     /**
@@ -68,7 +98,8 @@ class AssignmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $assignment = Assignment::find($id);
+        return view('assignmentEdit', ['assignment' => $assignment]);
     }
 
     /**
@@ -80,7 +111,33 @@ class AssignmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'course' => 'required',
+            'due_time' => 'required',
+            'due_date' => 'required',
+            'level' => 'required',
+            'estimation' => 'required',
+        ]);
+                  
+        $assignment = Assignment::find($id);        
+        $assignment->name = $request->get('name');
+        $assignment->course = $request->get('course');
+        $assignment->description = $request->get('description');
+        $assignment->submit_location = $request->get('submit_location');
+        $assignment->due_date = $request->get('due_date');
+        $assignment->due_time = $request->get('due_time');
+        $assignment->level = $request->get('level');
+        $assignment->estimation = $request->get('estimation');        
+
+        $user = new User;
+        $user->id = $assignment->user_id;
+        $assignment->user()->associate($user);
+        $assignment->save();         
+        
+        // redirect after add data
+        return redirect()->route('assignment.index')
+            ->with('success', 'Assignment Successfully Updated');
     }
 
     /**
@@ -91,8 +148,15 @@ class AssignmentController extends Controller
      */
     public function destroy($id)
     {
+        Assignment::find($id)->delete();
+        return redirect()->route('assignment.index')
+            ->with('success', 'Assignment Successfully Deleted');
+    }
+
+    public function reset_assignment($id)
+    {
         Assignment::where('user_id', $id)->delete();
         return redirect()->route('reset_data')
-            ->with('success', 'Assignment Successfully Deleted');
+            ->with('success', 'Assignment Successfully Reset');
     }
 }

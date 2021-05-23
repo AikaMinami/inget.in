@@ -3,16 +3,20 @@
 <div class="container">
     <h2>Assignment Detail</h2>
     <div class="container border">
-        <p class="h5 font-weight-normal">Due date: date at time </p><br>
-        <h4>Jobsheet Name</h4>
-        <p class="text-uppercase">Course Name</p><br>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos fugiat perspiciatis facere suscipit impedit amet ratione? Delectus laboriosam odio fuga porro ea quos esse at? Labore perferendis ex veritatis optio!</p>
+        <p class="h5 font-weight-normal">Due date: {{ $assignment->due_date }} at {{ $assignment->due_time }} </p><br>
+        <h4>{{ $assignment->name }}</h4>
+        <p class="text-uppercase">{{ $assignment->course }}</p><br>
+        <p>{{ $assignment->description }}</p>
         <!-- there's icon picture based on it's difficulties -->
-        <img src="assets/assets/img/hard-icon.png" alt="" width=90px>
+        <img src="{{ asset('assets/assets/img/hard-icon.png') }}" alt="{{ $assignment->level }}" width=90px>
         <p class="h5">Time Remaining: 0 day 0 hour 0 minutes</p><br>
         <div class="row">
-            <a class="btn btn-info" style="margin-left:10px" href="#">Edit</a>
-            <a class="btn btn-danger" style="margin-left:10px" href="#" onclick="return confirm('Are you sure to delete?')">Delete</a>            
+            <form action="{{ route('assignment.destroy', $assignment->id) }}" method="POST">
+                <a class="btn btn-info" style="margin-left:10px" href="{{ route('assignment.edit', $assignment->id) }}">Edit</a>                
+                @csrf
+                @method('DELETE')                
+                <button type="submit" class="btn btn-danger">Delete</button>                
+            </form>                 
         </div>
         <br>
     </div>

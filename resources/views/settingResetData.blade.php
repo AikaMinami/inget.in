@@ -53,7 +53,7 @@
                 Are you sure to reset the assignments?
             </div>
             <div class="modal-footer">                
-                <form action="{{ route('assignment.destroy', $user->id) }}" method="POST">
+                <form action="{{ route('reset_assignment', $user->id) }}" method="POST">
                     @csrf
                     @method('DELETE')                    
                     <button type="submit" class="btn btn-danger">Delete</button>                    
@@ -77,7 +77,7 @@
                 Are you sure to reset the schedules?
             </div>
             <div class="modal-footer">                
-                <form action="{{ route('schedule.destroy', $user->id) }}" method="POST">
+                <form action="{{ route('reset_schedule', $user->id) }}" method="POST">
                     @csrf
                     @method('DELETE')                    
                     <button type="submit" class="btn btn-danger">Delete</button>                    

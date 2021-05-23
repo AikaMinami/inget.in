@@ -18,10 +18,12 @@ use App\Http\Controllers\ScheduleController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/landing-page', function () {
+    return view('index');
+})->name('landing-page');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index']);
 Route::resource('user', UserController::class);
@@ -33,6 +35,8 @@ Route::prefix('settings')->group(function() {
     Route::get('/notification', [SettingController::class, 'notification'])->name('notification');
     Route::put('/notification/{id}', [NotificationController::class, 'update'])->name('notification.update');
     Route::get('/reset-data', [SettingController::class, 'resetData'])->name('reset_data');
+    Route::get('/reset-assignment/{id}', [AssignmentController::class, 'reset_assignment'])->name('reset_assignment');
+    Route::get('/reset-schedule/{id}', [ScheduleController::class, 'reset_schedule'])->name('reset_schedule');
 });
 
 // New Password Section

@@ -16,12 +16,13 @@ class CreateAssignmentTable extends Migration
         Schema::create('assignment', function (Blueprint $table) {
             $table->id();        
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->string('course');
             $table->text('description')->nullable();
             $table->string('submit_location')->nullable();
-            $table->datetime('due_datetime');
+            $table->date('due_date');
+            $table->time('due_time');
             $table->enum('level', ['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard']);
             $table->integer('estimation');
             $table->timestamps();

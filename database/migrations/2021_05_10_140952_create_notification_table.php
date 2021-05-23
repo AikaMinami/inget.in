@@ -16,7 +16,7 @@ class CreateNotificationTable extends Migration
         Schema::create('notification', function (Blueprint $table) {
             $table->id();            
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');            
             $table->integer('remind_assignment_at');
             $table->enum('remind_assignment_format', ['Minutes', 'Hours']);
             $table->integer('remind_schedule_at');

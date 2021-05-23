@@ -123,7 +123,7 @@
                 Are you sure to delete this account?
             </div>
             <div class="modal-footer">                
-                <form action="{{ route('user.destroy', $user->username) }}" method="POST">
+                <form action="{{ route('user.destroy', $user->id) }}" method="POST">
                     @csrf
                     @method('DELETE')                    
                     <button type="submit" class="btn btn-danger">Delete</button>                    
