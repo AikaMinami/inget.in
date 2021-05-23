@@ -21,7 +21,6 @@
                 </a>
                 </li>
             </ul>
-        
         </div>
         <div class="container col-sm-10">
             <h2>Reset Data</h2>
