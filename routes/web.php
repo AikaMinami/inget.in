@@ -46,3 +46,6 @@ Route::get('/email-confirmation', function () {
 Route::get('/new-password', function () {
     return view('newPassword');
 })->name('newPassword');
+Route::get('/calendar', function () {
+    return view('calendar');
+})->name('calendar');
