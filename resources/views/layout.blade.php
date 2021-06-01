@@ -55,7 +55,7 @@
                 <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('assignment.index') }}">Assignment</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('schedule.index') }}">Schedule</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
                     <li class="nav-item">
                         <img src="{{ asset('assets/assets/img/user.png') }}" width=50px height=50px class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        

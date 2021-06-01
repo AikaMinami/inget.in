@@ -28,8 +28,8 @@
                     </div>
                     <div class="card-body">
                         <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet 10</h5>
-                        <p class="card-text">Machine Learning</p>
+                        <h5 class="card-title">Jobsheet</h5>
+                        <p class="card-text">Course Name</p>
                         <img src="assets/assets/img/veryeasy-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
                         <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
                     </div>
@@ -55,8 +55,8 @@
                     </div>
                     <div class="card-body">
                         <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet 10</h5>
-                        <p class="card-text">Machine Learning</p>
+                        <h5 class="card-title">Jobsheet</h5>
+                        <p class="card-text">Course Name</p>
                         <img src="assets/assets/img/medium-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
                         <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
                     </div>
@@ -82,8 +82,8 @@
                     </div>
                     <div class="card-body">
                         <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet 10</h5>
-                        <p class="card-text">Machine Learning</p>
+                        <h5 class="card-title">Jobsheet</h5>
+                        <p class="card-text">Course Name</p>
                         <img src="assets/assets/img/veryeasy-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
                         <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
                     </div>
@@ -109,8 +109,8 @@
                     </div>
                     <div class="card-body">
                         <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet 10</h5>
-                        <p class="card-text">Machine Learning</p>
+                        <h5 class="card-title">Jobsheet</h5>
+                        <p class="card-text">Course Name</p>
                         <img src="assets/assets/img/hard-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
                         <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
                     </div>
@@ -136,8 +136,8 @@
                     </div>
                     <div class="card-body">
                         <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet 10</h5>
-                        <p class="card-text">Machine Learning</p>
+                        <h5 class="card-title">Jobsheet</h5>
+                        <p class="card-text">Course Name</p>
                         <img src="assets/assets/img/veryeasy-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
                         <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
                     </div>
@@ -163,8 +163,8 @@
                     </div>
                     <div class="card-body">
                         <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet 10</h5>
-                        <p class="card-text">Machine Learning</p>
+                        <h5 class="card-title">Jobsheet</h5>
+                        <p class="card-text">Course Name</p>
                         <img src="assets/assets/img/veryhard-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
                         <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
                     </div>
