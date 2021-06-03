@@ -16,9 +16,16 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-        //
+        $user = Auth::user();                
+        return view('schedule', ['user' => $user]);
     }
 
     /**
@@ -28,7 +35,8 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();                
+        return view('scheduleCreate', ['user' => $user]);
     }
 
     /**
