@@ -7,169 +7,27 @@
     </div>
     <h2>Assignment</h2>
     <div class="container">
-        <div class="row" style="margin-bottom:3rem">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div clas>
-                        <div class="row justify-content-space-between ">
-                            <div class="col-sm-3 align-items:center" style="width=25px; margin-left:20px">
-                                <input class="col-sm-3 form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-                            </div>
-                            <div class="dropdown col-sm-3" style="width=25px">
-                                <button class="btn btn-default" type="button" id="action" data-toggle="dropdown">
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="action">
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet</h5>
-                        <p class="card-text">Course Name</p>
-                        <img src="assets/assets/img/veryeasy-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
-                        <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success" style="height:50px">
+                <p>{{ $message }}</p>
+            </div>
+        @endif        
+        <div class="row">
+            @foreach($assignments as $assignment)
+            <div class="col-sm-4 p-2">
+                <div class="card">                                        
+                    <div class="card-body d-flex flex-column text-center">                        
+                        <input data-toggle="tooltip" title="Mark as done" class="mb-3" type="checkbox" id="checkboxNoLabel" value="DONE" style="width:20px; height:20px;">
+                        <h6 class="card-text text-left">Due Date: {{ $assignment->due_date }} at {{ $assignment->due_time }}</h6>
+                        <h5 class="card-title mt-2">{{ $assignment->name }}</h5>
+                        <p class="card-text">{{ $assignment->course }}</p>
+                        <img src="{{ asset('assets') }}" width=100px height=30px alt="" style="margin-bottom:20px">
+                        <p class="card-text text-left" style="font-size:10pt">Time Remaining: {{ $assignment->time_remaining }}</p>
+                        <a href="{{ route('assignment.show', $assignment->id) }}" class="btn btn-primary mt-auto">Details > </a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div clas>
-                        <div class="row justify-content-space-between ">
-                            <div class="col-sm-3 align-items:center" style="width=25px; margin-left:20px">
-                                <input class="col-sm-3 form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-                            </div>
-                            <div class="dropdown col-sm-3" style="width=25px">
-                                <button class="btn btn-default" type="button" id="action" data-toggle="dropdown">
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="action">
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet</h5>
-                        <p class="card-text">Course Name</p>
-                        <img src="assets/assets/img/medium-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
-                        <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div clas>
-                        <div class="row justify-content-space-between ">
-                            <div class="col-sm-3 align-items:center" style="width=25px; margin-left:20px">
-                                <input class="col-sm-3 form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-                            </div>
-                            <div class="dropdown col-sm-3" style="width=25px">
-                                <button class="btn btn-default" type="button" id="action" data-toggle="dropdown">
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="action">
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet</h5>
-                        <p class="card-text">Course Name</p>
-                        <img src="assets/assets/img/veryeasy-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
-                        <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div clas>
-                        <div class="row justify-content-space-between ">
-                            <div class="col-sm-3 align-items:center" style="width=25px; margin-left:20px">
-                                <input class="col-sm-3 form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-                            </div>
-                            <div class="dropdown col-sm-3" style="width=25px">
-                                <button class="btn btn-default" type="button" id="action" data-toggle="dropdown">
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="action">
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet</h5>
-                        <p class="card-text">Course Name</p>
-                        <img src="assets/assets/img/hard-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
-                        <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div clas>
-                        <div class="row justify-content-space-between ">
-                            <div class="col-sm-3 align-items:center" style="width=25px; margin-left:20px">
-                                <input class="col-sm-3 form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-                            </div>
-                            <div class="dropdown col-sm-3" style="width=25px">
-                                <button class="btn btn-default" type="button" id="action" data-toggle="dropdown">
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="action">
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet</h5>
-                        <p class="card-text">Course Name</p>
-                        <img src="assets/assets/img/veryeasy-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
-                        <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div clas>
-                        <div class="row justify-content-space-between ">
-                            <div class="col-sm-3 align-items:center" style="width=25px; margin-left:20px">
-                                <input class="col-sm-3 form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-                            </div>
-                            <div class="dropdown col-sm-3" style="width=25px">
-                                <button class="btn btn-default" type="button" id="action" data-toggle="dropdown">
-                                    <i class="fas fa-ellipsis-h"></i>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="action">
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                                    <li ><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-text">Due Date : 07/06/2021 at 09:00</h6>
-                        <h5 class="card-title">Jobsheet</h5>
-                        <p class="card-text">Course Name</p>
-                        <img src="assets/assets/img/veryhard-icon.png" width=100px height=30px alt="" style="margin-bottom:20px">
-                        <p class="card-text" style="font-size:10pt">Time Remaining : 7 days 5 hours 10 minutes</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach            
         </div>
     </div>
 </div>

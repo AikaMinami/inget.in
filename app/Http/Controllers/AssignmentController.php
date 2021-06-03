@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
-use DB;
 use App\Models\User;
 use App\Models\Assignment;
+use Auth;
+use DB;
+use Carbon\Carbon;
 
 
 class AssignmentController extends Controller
@@ -23,9 +24,11 @@ class AssignmentController extends Controller
     }
 
     public function index()
-    {
-        $user = Auth::user();                
-        return view('assignment', ['user' => $user]);
+    {            
+        $assignments = Assignment::all();             
+        // dd($assignments);
+        // return view('assignment', ['assignments' => $assignments]);
+        return view('assignment', compact('assignments'));
     }
 
     /**
@@ -136,7 +139,7 @@ class AssignmentController extends Controller
         $assignment->save();         
         
         // redirect after add data
-        return redirect()->route('assignment.index')
+        return redirect()->route('assignment.show', $assignment->id)
             ->with('success', 'Assignment Successfully Updated');
     }
 
