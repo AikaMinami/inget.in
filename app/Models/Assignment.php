@@ -16,13 +16,25 @@ class Assignment extends Model
         'course',
         'description',
         'submit_location',
-        'due_datetime',
+        'due_date',
+        'due_time',
         'level',
-        'estimation',        
+        'estimation',      
+        'status',  
     ];
 
     public function user() 
     {        
         return $this->belongsTo(User::class);
+    }
+
+    public function getRemainingHoursAttribute()
+    {
+        if ($this->due_date) {
+            $time_remaining = Carbon::now()->diffInDays(Carbon::parse($this->due_date));
+        } else {
+            $time_remaining = 0;
+        }
+        return $time_remaining;
     }
 }

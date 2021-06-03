@@ -36,36 +36,25 @@
             </div>
         </div>
     </div>
-    <h2>Timeline</h2>
+    <h2>Due Date in 3 Days</h2>
     <div>
     <div class="container">
-        <div class="sorting-data">
-            <h3>Friday, 7 May 2021</h3><br>
+        <div class="sorting-data">            
             <div class="row" style="margin-bottom:3rem">
+                @foreach($assignments as $assignment)    
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body d-flex flex-column">
-                            <p class="card-text">Due Date: 27/04/2021 at 17:00</p><br>
+                            <p class="card-text">Due Date: {{ $assignment->due_date }} at {{ $assignment->due_time }}</p><br>
                             <div class="justify-content-center align-items-center"> 
-                                <h4 class="card-title text-center">Jobsheet 9</h4>
-                                <h5 class="card-text text-center">ADBO</h5>
+                                <h4 class="card-title text-center">{{ $assignment->name }}</h4>
+                                <h5 class="card-text text-center">{{ $assignment->course }}</h5>
                             </div>
-                            <a href="#" class="btn btn-primary float-right mt-auto">Details > </a>
+                            <a href="{{ route('assignment.show', $assignment->id) }}" class="btn btn-primary float-right mt-auto">Details > </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body d-flex flex-column">
-                            <p class="card-text">Due Date: 01/05/2021 at 00:00</p><br>
-                            <div class="justify-content-center align-items-center"> 
-                                <h4 class="card-title text-center">Jobsheet 10</h4>
-                                <h5 class="card-text text-center">DBMS</h5>
-                            </div>
-                            <a href="#" class="btn btn-primary float-right mt-auto">Details > </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach                
             </div>
         </div>
     </div>

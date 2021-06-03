@@ -25,6 +25,7 @@ class CreateAssignmentTable extends Migration
             $table->time('due_time');
             $table->enum('level', ['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard']);
             $table->integer('estimation');
+            $table->enum('status', ['DOING', 'DONE'])->default('DOING');
             $table->timestamps();
         });
     }

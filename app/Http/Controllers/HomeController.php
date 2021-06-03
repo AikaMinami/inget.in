@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use DB;
+use App\Models\Assignment;
 
 class HomeController extends Controller
 {
@@ -23,8 +25,15 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
+    {        
+        
+        $assignments = DB::table('assignment')->whereRaw('DATEDIFF(due_date, NOW()) <= 3')->get();
+        // dd($assignments);
         $user = Auth::user();
-        return view('home', ['user' => $user]);
+        return view('home', ['user' => $user, 
+                            'assignments' => $assignments]);
+        // ->with('assignments', Assignment::all())
+        // ->with('assignments', Assignment::all())
+        // ->with('user', Auth::user());
     }
 }
