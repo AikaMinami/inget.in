@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\Models\Assignment;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,7 @@ class HomeController extends Controller
         $assignments = DB::table('assignment')->whereRaw('DATEDIFF(due_date, NOW()) <= 3')->get();
         // dd($assignments);
         $user = Auth::user();
+        // $schedule = 
         return view('home', ['user' => $user, 
                             'assignments' => $assignments]);
         // ->with('assignments', Assignment::all())

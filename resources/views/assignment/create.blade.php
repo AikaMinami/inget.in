@@ -1,18 +1,18 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
     <h2>Assignment</h2>
     <div class="container border">
         <h4>Due Date</h4>
-        <form method="POST" action="{{ route('assignment.store') }}">
+        <form method="POST" action="{{ route('assignment.store') }}" style="margin-bottom:40px">
             @csrf
             <div class="row align-items-center" >
                 <input type="date" id="asgn-date" name="due_date" required>
                 <p>at</p>
                 <input type="time" id="asgn-hour" name="due_time" required><br>
             </div>
-            <input type="text" id="asgn-name" name="name" placeholder="Name" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" required>
+            <input type="text" id="asgn-name" name="name" placeholder="Assignment Name" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" required>
             <input type="text" id="asgn-course" name="course" placeholder="Course" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" required>
             <input type="text" id="asgn-submit-location" name="submit_location" placeholder="Submit Location" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0">
             <textarea name="description" id="asgn-desc" cols="30" rows="5" placeholder="Description" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0"></textarea>            

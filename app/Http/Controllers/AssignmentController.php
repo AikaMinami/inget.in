@@ -25,10 +25,8 @@ class AssignmentController extends Controller
 
     public function index()
     {            
-        $assignments = Assignment::all();             
-        // dd($assignments);
-        // return view('assignment', ['assignments' => $assignments]);
-        return view('assignment', compact('assignments'));
+        $assignments = Assignment::all();                     
+        return view('assignment.index', compact('assignments'));
     }
 
     /**
@@ -39,7 +37,7 @@ class AssignmentController extends Controller
     public function create()
     {
         $user = Auth::user();                
-        return view('assignmentCreate', ['user' => $user]);
+        return view('assignment.create', ['user' => $user]);
     }
 
     /**
@@ -90,7 +88,7 @@ class AssignmentController extends Controller
     public function show($id)
     {        
         $assignment = Assignment::find($id);
-        return view('assignmentDetail', ['assignment' => $assignment]);
+        return view('assignment.show', ['assignment' => $assignment]);
     }
 
     /**
@@ -102,7 +100,7 @@ class AssignmentController extends Controller
     public function edit($id)
     {
         $assignment = Assignment::find($id);
-        return view('assignmentEdit', ['assignment' => $assignment]);
+        return view('assignment.edit', ['assignment' => $assignment]);
     }
 
     /**

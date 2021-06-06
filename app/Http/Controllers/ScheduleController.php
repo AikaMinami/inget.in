@@ -24,8 +24,8 @@ class ScheduleController extends Controller
     
     public function index()
     {
-        $user = Auth::user();                
-        return view('schedule', ['user' => $user]);
+        $schedules = Schedule::all();                     
+        return view('schedule.index', compact('schedules'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ScheduleController extends Controller
     public function create()
     {
         $user = Auth::user();                
-        return view('scheduleCreate', ['user' => $user]);
+        return view('schedule.create', ['user' => $user]);
     }
 
     /**
@@ -47,7 +47,33 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'course' => 'required',            
+            'day' => 'required',
+            'start' => 'required',
+            'end' => 'required',            
+        ]);
+        
+        $authUser = Auth::user();   
+        $schedule = new Schedule;
+        $schedule->user_id = $authUser->id;
+        $schedule->course = $request->get('course');
+        $schedule->room = $request->get('room');
+        $schedule->location = $request->get('location');
+        $schedule->teacher = $request->get('teacher');
+        $schedule->contact = $request->get('contact');
+        $schedule->day = $request->get('day');
+        $schedule->start = $request->get('start');
+        $schedule->end = $request->get('end');
+
+        $user = new User;
+        $user->id = $schedule->user_id;
+        $schedule->user()->associate($user);
+        $schedule->save();         
+        
+        // redirect after add data
+        return redirect()->route('schedule.index')
+            ->with('success', 'Schedule Successfully Added');
     }
 
     /**
@@ -69,7 +95,8 @@ class ScheduleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $schedule = Schedule::find($id);
+        return view('schedule.edit', ['schedule' => $schedule]);
     }
 
     /**
@@ -81,7 +108,32 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'course' => 'required',
+            'room' => 'required',
+            'day' => 'required',
+            'start' => 'required',
+            'end' => 'required',
+        ]);
+                  
+        $schedule = Schedule::find($id);
+        $schedule->course = $request->get('course');
+        $schedule->room = $request->get('room');
+        $schedule->location = $request->get('location');
+        $schedule->teacher = $request->get('teacher');
+        $schedule->contact = $request->get('contact');
+        $schedule->day = $request->get('day');
+        $schedule->start = $request->get('start');
+        $schedule->end = $request->get('end');
+
+        $user = new User;
+        $user->id = $schedule->user_id;
+        $schedule->user()->associate($user);
+        $schedule->save();   
+        
+        // redirect after update data
+        return redirect()->route('schedule.index', $schedule->id)
+            ->with('success', 'Schedule Successfully Updated');
     }
 
     /**
@@ -92,8 +144,8 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        Schedule::where('user_id', $id)->delete();
-        return redirect()->route('reset_data')
+        Schedule::find($id)->delete();
+        return redirect()->route('schedule.index')
             ->with('success', 'Assignment Successfully Deleted');
     }
 
