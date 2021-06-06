@@ -233,7 +233,7 @@
                                 </div>
                                 <div class="col-md-6 my-3 text-right">
                                     @if (Route::has('password.request'))
-                                        <a href="{{ route('password.request') }}">
+                                        <a href="{{ route('email_confirmation') }}">
                                             Forgot Password
                                         </a>
                                     @endif                            

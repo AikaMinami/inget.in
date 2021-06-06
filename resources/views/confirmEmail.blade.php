@@ -1,16 +1,16 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
-    <div class="container" height="100%">
+    <div class="container">
         <div class="vertical-center">
-            <div class="container border " style="margin-top: 150px; padding:75px"> 
-                <form action="">
+            <div class="container border" style="padding:75px"> 
+                <form action="{{ route('check_email') }}">
+                    @csrf
                     <label for="email-confirm">Input Your E-mail For Confirmation</label>
-                    <input class= "form-control" type="text" placeholder="E-mail" id="email-confirm"><br>
-                    <a href=""><button type="submit" class="btn btn-primary float-right" style="">Confirm</button></a>
+                    <input class= "form-control" name="email" type="text" placeholder="E-mail" id="email-confirm"><br>
+                    <button type="submit" class="btn btn-primary float-right">Confirm</button>
                 </form>
-            </div>
-            <div class="container" style="padding:75px 0 75px" ></div>
+            </div>            
         </div>
     </div>
 @endsection

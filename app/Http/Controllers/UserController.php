@@ -96,11 +96,9 @@ class UserController extends Controller
         if(!Hash::check($request->get('password'), $current_password))
         {                                   
             $user->password = Hash::make($request->get('password'));            
-            $user->save();   
+            $user->save();
         }        
-
-        // dd($user);
-        // redirect after add data
+        
         return redirect()->route('account')
             ->with('success', 'User Successfully Updated');
     }
@@ -122,5 +120,5 @@ class UserController extends Controller
         } else {
             return redirect()->route('account');
         }        
-    }
+    }            
 }
