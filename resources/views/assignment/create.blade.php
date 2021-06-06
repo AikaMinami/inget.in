@@ -7,6 +7,16 @@
         <h4>Due Date</h4>
         <form method="POST" action="{{ route('assignment.store') }}" style="margin-bottom:40px">
             @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="row align-items-center" >
                 <input type="date" id="asgn-date" name="due_date" required>
                 <p>at</p>

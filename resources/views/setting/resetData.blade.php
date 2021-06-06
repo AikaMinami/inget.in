@@ -24,7 +24,12 @@
         </div>
         <div class="container col-sm-10">
             <h2>Reset Data</h2>
-            <div class="container row">            
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success mb-3" style="height:50px">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+            <div class="container row">
                 <label for="resetAssignment" class="col-sm-3 col-form-label"><p style="font-size:16pt; font-family:Montserrat">Assignment</p></label>
                 <div class="col" style="width=50px">
                     <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#resetAssignment">Reset</button>
@@ -55,8 +60,9 @@
             <div class="modal-footer">                
                 <form action="{{ route('reset_assignment', $user->id) }}" method="POST">
                     @csrf
-                    @method('DELETE')                    
-                    <button type="submit" class="btn btn-danger">Delete</button>                    
+                    @method('DELETE')
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>              
+                    <button type="submit" class="btn btn-danger">Delete</button>
                 </form>                
             </div>
             </div>

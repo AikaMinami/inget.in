@@ -21,7 +21,7 @@ class CreateScheduleTable extends Migration
             $table->string('room');
             $table->string('location')->nullable();
             $table->string('teacher')->nullable();
-            $table->string('contact')->nullable();
+            $table->string('contact')->nullable()->default('-');
             $table->enum('day', ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']);
             $table->time('start');
             $table->time('end');

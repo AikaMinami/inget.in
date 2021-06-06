@@ -8,6 +8,16 @@
         <form method="POST" action="{{ route('assignment.update', $assignment->id) }}" style="margin-bottom:40px">
             @csrf
             @method('PUT')
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="row align-items-center" >
                 <input type="date" id="asgn-date" name="due_date" value="{{ $assignment->due_date }}">
                 <p class="mx-3">at</p>

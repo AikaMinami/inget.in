@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $user = Auth::user();        
         //dd($user);
-        return view('settingAccount', ['user' => $user]);
+        return view('setting.account', ['user' => $user]);
     }
 
     /**
@@ -111,10 +111,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        User::find($id)->delete();
-        return redirect()->route('home')
-            ->with('success', 'User Successfully Deleted');
+        $user = User::find($id);
+        $password = $request->get('password');
+        if(Hash::check($request->password, $user->password)) {
+            $user->delete();
+            return redirect()->route('home')
+                ->with('success', 'User Successfully Deleted');
+        } else {
+            return redirect()->route('account');
+        }        
     }
 }

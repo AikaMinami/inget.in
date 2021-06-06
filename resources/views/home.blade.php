@@ -3,37 +3,32 @@
 @section('content')
 <div class="container"><br><br>
     <h1>Welcome, {{ $user->name }}! </h1> <br>
-
     <h2>Today's Schedule</h2>
     <div class="container">
-        <div class="row" style="margin-bottom:3rem">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-text">07:00-09:00</h6>
-                        <h5 class="card-title">SMBD</h5>
-                        <p class="card-text">LIG 2 <br> <a href="#">Class Link</a> <br> Mr. Watanabe Haruto <br> contact </p>
-                    </div>
+        <div class="row">
+            @foreach($schedules as $schedule)
+                <div class="col-sm-4">
+                    <div class="card mb-3">                    
+                        <div class="card-body">
+                            <h6 class="card-text d-inline">{{ $schedule->start }} - {{ $schedule->end }}</h6>                            
+                            <h4 class="card-title mt-4 text-center">{{ $schedule->course }}</h4>
+                            @if($schedule->location != NULL)
+                                <p class="card-text">{{ $schedule->room }}<br>
+                                @if(str_contains($schedule->location, 'www.'))
+                                    <a href="{{ $schedule->location }}">({{ $schedule->location }})</a>
+                                @else
+                                    ({{ $schedule->location }})<br>
+                                @endif
+                            @else
+                                <p class="card-text text-center">{{ $schedule->room }}</p>
+                            @endif
+                            @if($schedule->teacher && $schedule->contact != NULL)    
+                                <p>{{ $schedule->teacher }}: {{ $schedule->contact }}</p>
+                            @endif        
+                        </div>
+                    </div>  
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-text">11:30-12:45</h6>
-                        <h5 class="card-title">Advanced Website Programming</h5>
-                        <p class="card-text">LKJ 2 <br> <a href="#">Class Link</a> <br> Ms. Humairah <br> contact </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-text">15:30-17:45</h6>
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">LIG 1 <br> <a href="#">Class Link</a> <br> Mr. Yoga <br> contact </p>
-                    </div>
-                </div>
-            </div>
+            @endforeach            
         </div>
     </div>
     <h2>Due Date in 3 Days</h2>

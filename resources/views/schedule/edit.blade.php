@@ -7,6 +7,16 @@
         <form method="POST"  action="{{ route('schedule.update', $schedule->id) }}" style="margin-bottom:40px">
             @csrf
             @method('PUT')
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <input type="text" id="schd-course" name="course" placeholder="Course" value="{{ $schedule->course }}" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" required>
             <input type="text" id="schd-teacher-name" name="teacher" placeholder="Teacher Name" value="{{ $schedule->teacher }}" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0">
             <input type="text" id="schd-classroom" name="room" placeholder="Classroom" value="{{ $schedule->room }}" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" required>

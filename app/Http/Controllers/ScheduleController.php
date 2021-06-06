@@ -24,7 +24,8 @@ class ScheduleController extends Controller
     
     public function index()
     {
-        $schedules = Schedule::all();                     
+        // $schedules = Schedule::all()->sortBy('start','ASC');                     
+        $schedules = Schedule::orderBy('start','asc')->get();
         return view('schedule.index', compact('schedules'));
     }
 
@@ -61,7 +62,7 @@ class ScheduleController extends Controller
         $schedule->room = $request->get('room');
         $schedule->location = $request->get('location');
         $schedule->teacher = $request->get('teacher');
-        $schedule->contact = $request->get('contact');
+        $schedule->contact = $request->get('contact') ?? '-';        
         $schedule->day = $request->get('day');
         $schedule->start = $request->get('start');
         $schedule->end = $request->get('end');
@@ -121,7 +122,7 @@ class ScheduleController extends Controller
         $schedule->room = $request->get('room');
         $schedule->location = $request->get('location');
         $schedule->teacher = $request->get('teacher');
-        $schedule->contact = $request->get('contact');
+        $schedule->contact = $request->get('contact') ?? '-';
         $schedule->day = $request->get('day');
         $schedule->start = $request->get('start');
         $schedule->end = $request->get('end');

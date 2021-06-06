@@ -6,6 +6,16 @@
     <div class="container border">
         <form method="POST" action="{{ route('schedule.store') }}" style="margin-bottom:70px">
             @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <input type="text" id="schd-course" name="course" placeholder="Course" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" required>
             <input type="text" id="schd-teacher" name="teacher" placeholder="Teacher Name" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0">
             <input type="text" id="schd-room" name="room" placeholder="Classroom" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" required>

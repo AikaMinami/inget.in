@@ -29,11 +29,12 @@ class HomeController extends Controller
     {        
         
         $assignments = DB::table('assignment')->whereRaw('DATEDIFF(due_date, NOW()) <= 3')->get();
-        // dd($assignments);
-        $user = Auth::user();
-        // $schedule = 
+        $user = Auth::user();        
+        $day = Carbon::now()->format('l');        
+        $schedules = DB::table('schedule')->where('day', '=', $day)->orderBy('start','asc')->get();
         return view('home', ['user' => $user, 
-                            'assignments' => $assignments]);
+                            'assignments' => $assignments,
+                            'schedules' => $schedules]);
         // ->with('assignments', Assignment::all())
         // ->with('assignments', Assignment::all())
         // ->with('user', Auth::user());

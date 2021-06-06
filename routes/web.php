@@ -35,8 +35,8 @@ Route::prefix('settings')->group(function() {
     Route::get('/notification', [SettingController::class, 'notification'])->name('notification');
     Route::put('/notification/{id}', [NotificationController::class, 'update'])->name('notification.update');
     Route::get('/reset-data', [SettingController::class, 'resetData'])->name('reset_data');
-    Route::get('/reset-assignment/{id}', [AssignmentController::class, 'reset_assignment'])->name('reset_assignment');
-    Route::get('/reset-schedule/{id}', [ScheduleController::class, 'reset_schedule'])->name('reset_schedule');
+    Route::delete('/reset-assignment/{id}', [AssignmentController::class, 'reset_assignment'])->name('reset_assignment');
+    Route::delete('/reset-schedule/{id}', [ScheduleController::class, 'reset_schedule'])->name('reset_schedule');
 });
 
 // New Password Section
