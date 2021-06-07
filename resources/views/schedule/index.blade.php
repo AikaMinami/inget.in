@@ -14,7 +14,7 @@
         @endif  
         <div class="row" style="margin-bottom:3rem">
             <!-- Monday -->
-            <div class="col-sm-4 container">
+            <div class="col-sm-4 container border-bottom border-dark">
                 <h3 class="text-center">Monday</h3>
                 @foreach($schedules as $schedule)  
                     @if($schedule->day == 'Monday')
@@ -24,7 +24,7 @@
             </div>
             <!-- end of Monday -->
             <!-- Tuesday -->
-            <div class="col-sm-4 container">
+            <div class="col-sm-4 container border-bottom border-dark">
                 <h3 class="text-center">Tuesday</h3>
                 @foreach($schedules as $schedule)  
                     @if($schedule->day == 'Tuesday')
@@ -34,7 +34,7 @@
             </div>
             <!-- end of Tuesday -->
             <!-- Wednesday -->
-            <div class="col-sm-4 container">
+            <div class="col-sm-4 container border-bottom border-dark">
                 <h3 class="text-center">Wednesday</h3>
                 @foreach($schedules as $schedule)  
                     @if($schedule->day == 'Wednesday')
@@ -44,7 +44,7 @@
             </div>
             <!-- end of Wednesday -->
             <!-- Thursday -->
-            <div class="col-sm-4 container">
+            <div class="col-sm-4 container border-bottom border-dark">
                 <h3 class="text-center">Thursday</h3>
                 @foreach($schedules as $schedule)  
                     @if($schedule->day == 'Thursday')
@@ -54,7 +54,7 @@
             </div>
             <!-- end of Thursday -->
             <!-- Friday -->
-            <div class="col-sm-4 container">
+            <div class="col-sm-4 container border-bottom border-dark">
                 <h3 class="text-center">Friday</h3>
                 @foreach($schedules as $schedule)  
                     @if($schedule->day == 'Friday')
@@ -64,7 +64,7 @@
             </div>
             <!-- end of Friday -->
             <!-- Saturday -->
-            <div class="col-sm-4 container">
+            <div class="col-sm-4 container border-bottom border-dark">
                 <h3 class="text-center">Saturday</h3>                
                 @foreach($schedules as $schedule)  
                     @if($schedule->day == 'Saturday')

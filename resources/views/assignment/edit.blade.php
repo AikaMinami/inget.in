@@ -25,7 +25,7 @@
             </div>
             <input type="text" id="asgn-name" name="name" placeholder="Assignment Name" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" value="{{ $assignment->name }}">
             <input type="text" id="asgn-course" name="course" placeholder="Course" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" value="{{ $assignment->course }}">
-            <input type="text" id="asgn-submit-location" name="submit_location" placeholder="Submit Location" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0">
+            <input type="text" id="asgn-submit-location" name="submit_location" placeholder="Submit Location" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" value="{{ $assignment->submit_location }}">
             <textarea name="description" id="asgn-desc" cols="30" rows="5" placeholder="Description" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0">{{ $assignment->description }}</textarea>            
             <label for="asgn-diff" class="col-form-label">Difficulty</label>
             <select name="level" id="asgn-diff" class="form-control">

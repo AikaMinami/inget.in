@@ -13,7 +13,7 @@
         <h4 class="card-title mt-4 text-center">{{ $schedule->course }}</h4>
         @if($schedule->location != NULL)
             <p class="card-text">{{ $schedule->room }}<br>
-            @if(str_contains($schedule->location, 'www.'))
+            @if(str_contains($schedule->location, 'www.') OR str_contains($schedule->location, 'http'))
                 <a href="{{ $schedule->location }}">({{ $schedule->location }})</a>
             @else
                 ({{ $schedule->location }})<br>
