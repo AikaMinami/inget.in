@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Hash;
 
 class PageController extends Controller
 {    
+    public function landingPage() {
+        return view('index');
+    }
+    
     public function home()
     {                
         $user = Auth::user();                
@@ -72,5 +76,9 @@ class PageController extends Controller
         } else {
             return redirect()->route('new_password');
         }          
+    }
+
+    public function calendar() {
+        return view('calendar');
     }
 }

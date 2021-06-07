@@ -29,11 +29,21 @@
             <div class="col-sm-4 p-2">
                 <div class="card">                                        
                     <div class="card-body d-flex flex-column text-center">                        
-                        <input data-toggle="tooltip" title="Mark as done" class="mb-3" type="checkbox" id="checkboxNoLabel" value="DONE" style="width:20px; height:20px;">
+                        <div class="d-flex flex-row justify-content-between">
+                            <img src="{{ asset('assets/assets/img/level/' . $assignment->level . '.png') }}" height=34px alt="{{ $assignment->level }}" style="margin-bottom:20px">                        
+                            @if ($assignment->status == "DOING")
+                            <a href="{{ route('assignment.markAsDone', $assignment->id) }}"><button class="btn btn-outline-dark">&#10004;</button></a>                        
+                            @endif                            
+                        </div>
+                        @if ($assignment->status == "DONE")
+                        <strike>
+                        @endif
                         <h6 class="card-text text-left">Due Date: {{ $assignment->due_date }} at {{ $assignment->due_time }}</h6>
                         <h5 class="card-title mt-2 text-uppercase">{{ $assignment->name }}</h5>
                         <p class="card-text">{{ $assignment->course }}</p>
-                        <img src="{{ asset('assets/assets/img/level/' . $assignment->level . '.png') }}" width=100px alt="{{ $assignment->level }}" style="margin-bottom:20px">                        
+                        @if ($assignment->status == "DONE")
+                        </strike>
+                        @endif                        
                         <a href="{{ route('assignment.show', $assignment->id) }}" class="btn btn-primary mt-auto">Details > </a>
                     </div>
                 </div>

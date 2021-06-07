@@ -20,15 +20,21 @@ use App\Http\Controllers\ScheduleController;
 */
 Auth::routes();
 
-Route::get('/landing-page', function () {
-    return view('index');
-})->name('landing-page');
-
-Route::get('/', [PageController::class, 'home'])->name('home')->middleware('auth');
-Route::get('/home', [PageController::class, 'home'])->middleware('auth');
+// Resources
 Route::resource('user', UserController::class);
 Route::resource('schedule', ScheduleController::class);
 Route::resource('assignment', AssignmentController::class);
+
+// Pages
+Route::get('/landing-page', [PageController::class, 'landingPage'])->name('landing_page');
+Route::get('/email-confirmation', [PageController::class, 'emailConfirmation'])->name('email_confirmation');
+Route::get('/check_email', [PageController::class, 'getAccountForResetPassword'])->name('check_email');
+Route::get('/new-password/{id}', [PageController::class, 'resetPassword'])->name('new_password');
+Route::get('/', [PageController::class, 'home'])->name('home')->middleware('auth');
+Route::get('/home', [PageController::class, 'home'])->middleware('auth');
+Route::get('/assignment?sortBy=level', [AssignmentController::class, 'sortByLevel'])->name('assignment.level');
+Route::get('/assignment/done/{id}', [AssignmentController::class, 'markAsDone'])->name('assignment.markAsDone');
+Route::get('/calendar', [PageController::class, 'calendar'])->name('calendar');
 Route::prefix('settings')->group(function() {
     Route::redirect('/', '/settings/account')->name('settings');
     Route::get('/account', [PageController::class, 'settingAccount'])->name('account')->middleware('auth');    
@@ -39,12 +45,3 @@ Route::prefix('settings')->group(function() {
     Route::delete('/reset-schedule/{id}', [ScheduleController::class, 'reset_schedule'])->name('reset_schedule');
 });
 
-// New Password Section
-Route::get('/email-confirmation', [PageController::class, 'emailConfirmation'])->name('email_confirmation');
-Route::get('/check_email', [PageController::class, 'getAccountForResetPassword'])->name('check_email');
-Route::get('/new-password/{id}', [PageController::class, 'resetPassword'])->name('new_password');
-Route::get('/calendar', function () {
-    return view('calendar');
-})->name('calendar');
-
-Route::get('/assignment?sortBy=level', [AssignmentController::class, 'sortByLevel'])->name('assignment.level');

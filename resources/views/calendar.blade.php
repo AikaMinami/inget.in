@@ -1,149 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Inget.in</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/assets/img/logo-ingetin.png') }}"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-</head>
-<body>
-  
-<div class="container">
-    <br />
-    <h1 class="text-center text-primary"><u>Calendar</u></h1>
-    <br />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Inget.in</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/assets/img/logo-ingetin.png') }}"/>
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" /> -->
+        <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    </head>
+    <body>
+        <div class="container">            
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#48c072" id="mainNav">
+                <img src="{{ asset('assets/assets/img/logo-ingetin.png') }}" alt="" class="navbar-brand" width="50px" width="50px">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('home') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('assignment.index') }}">Assignment</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('schedule.index') }}">Schedule</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('calendar') }}">Calendar</a></li>
+                        <li class="nav-item">
+                            <img src="{{ asset('assets/assets/img/user.png') }}" width=50px height=50px class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ route('settings')}}">Settings</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
 
-    <div id="calendar"></div>
-
-</div>
-   
-<script>
-
-$(document).ready(function () {
-
-    $.ajaxSetup({
-        headers:{
-            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    var calendar = $('#calendar').fullCalendar({
-        editable:true,
-        header:{
-            left:'prev,next today',
-            center:'title',
-            right:'month,agendaWeek,agendaDay'
-        },
-        events:'/full-calender',
-        selectable:true,
-        selectHelper: true,
-        select:function(start, end, allDay)
-        {
-            var title = prompt('Event Title:');
-
-            if(title)
-            {
-                var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
-
-                var end = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');
-
-                $.ajax({
-                    url:"/full-calender/action",
-                    type:"POST",
-                    data:{
-                        title: title,
-                        start: start,
-                        end: end,
-                        type: 'add'
-                    },
-                    success:function(data)
-                    {
-                        calendar.fullCalendar('refetchEvents');
-                        alert("Event Created Successfully");
-                    }
-                })
-            }
-        },
-        editable:true,
-        eventResize: function(event, delta)
-        {
-            var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
-            var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
-            var title = event.title;
-            var id = event.id;
-            $.ajax({
-                url:"/full-calender/action",
-                type:"POST",
-                data:{
-                    title: title,
-                    start: start,
-                    end: end,
-                    id: id,
-                    type: 'update'
-                },
-                success:function(response)
-                {
-                    calendar.fullCalendar('refetchEvents');
-                    alert("Event Updated Successfully");
-                }
-            })
-        },
-        eventDrop: function(event, delta)
-        {
-            var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
-            var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
-            var title = event.title;
-            var id = event.id;
-            $.ajax({
-                url:"/full-calender/action",
-                type:"POST",
-                data:{
-                    title: title,
-                    start: start,
-                    end: end,
-                    id: id,
-                    type: 'update'
-                },
-                success:function(response)
-                {
-                    calendar.fullCalendar('refetchEvents');
-                    alert("Event Updated Successfully");
-                }
-            })
-        },
-
-        eventClick:function(event)
-        {
-            if(confirm("Are you sure you want to remove it?"))
-            {
-                var id = event.id;
-                $.ajax({
-                    url:"/full-calender/action",
-                    type:"POST",
-                    data:{
-                        id:id,
-                        type:"delete"
-                    },
-                    success:function(response)
-                    {
-                        calendar.fullCalendar('refetchEvents');
-                        alert("Event Deleted Successfully");
-                    }
-                })
-            }
-        }
-    });
-
-});
-  
-</script>
-  
-</body>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>                            
+                            </div>
+                        </li>
+                    </ul>
+                </div>    
+            </nav>
+            <br>            
+            <h1 class="text-center"><u>Calendar</u></h1>
+            <br>
+            <div id="calendar" class="mt-3"></div>
+            <!-- Footer-->
+            <div class="position-sticky">
+                <footer class="footer-collapse py-4">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 text-lg-left">Copyright © Inget.In 2021</div>
+                            <div class="col-lg-6 text-lg-right">
+                                <a class="mr-3" href="#!">Privacy Policy</a>
+                                <a href="#!">Terms of Use</a>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <script src="{{ asset('assets/js/calendar.js') }}"></script>  
+    </body>
 </html>

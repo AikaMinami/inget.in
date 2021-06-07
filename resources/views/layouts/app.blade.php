@@ -44,54 +44,54 @@
     <body>
         <!-- Navigation-->
         <div class="container position-relative" style="min-height: 100%;">
-        <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#48c072" id="mainNav">
-            <img src="{{ asset('assets/assets/img/logo-ingetin.png') }}" alt="" class="navbar-brand" width="50px" width="50px">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ml-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('assignment.index') }}">Assignment</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('schedule.index') }}">Schedule</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Calendar</a></li>
-                    <li class="nav-item">
-                        <img src="{{ asset('assets/assets/img/user.png') }}" width=50px height=50px class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ route('settings')}}">Settings</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#48c072" id="mainNav">
+                    <img src="{{ asset('assets/assets/img/logo-ingetin.png') }}" alt="" class="navbar-brand" width="50px" width="50px">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+                        <i class="fas fa-bars ml-1"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('assignment.index') }}">Assignment</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('schedule.index') }}">Schedule</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('calendar') }}">Calendar</a></li>
+                            <li class="nav-item">
+                                <img src="{{ asset('assets/assets/img/user.png') }}" width=50px height=50px class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('settings')}}">Settings</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>                            
-                        </div>
-                    </li>
-                </ul>
-            </div>    
-        </nav>
-        </div>
-        <br><br><br><br><br>
-        @yield('content')
-        <!-- Footer-->
-        <div class="position-sticky">
-             <footer class="footer-collapse py-4">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 text-lg-left">Copyright © Inget.In 2021</div>
-                        <div class="col-lg-6 text-lg-right">
-                            <a class="mr-3" href="#!">Privacy Policy</a>
-                            <a href="#!">Terms of Use</a>
-                        </div>
-                    </div>
-                </footer>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>                            
+                                </div>
+                            </li>
+                        </ul>
+                    </div>    
+                </nav>
             </div>
-        </div>
+            <br><br><br><br><br>
+            @yield('content')
+            <!-- Footer-->
+            <div class="position-sticky">
+                <footer class="footer-collapse py-4">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 text-lg-left">Copyright © Inget.In 2021</div>
+                            <div class="col-lg-6 text-lg-right">
+                                <a class="mr-3" href="#!">Privacy Policy</a>
+                                <a href="#!">Terms of Use</a>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -26,24 +26,39 @@ class AssignmentController extends Controller
     public function index(Request $request)
     {             
         $sortBy = $request->get('sortBy');
-        $assignments = Assignment::orderBy('due_date','asc')->orderBy('due_time','asc')->get();
+        $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                        ->orderBy('due_date','asc')
+                        ->orderBy('due_time','asc')->get();
         switch ($sortBy) {
             case "due_date":
-                $assignments = Assignment::orderBy('due_date','asc')->orderBy('due_time','asc')->get();
+                $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                                ->orderBy('due_date','asc')
+                                ->orderBy('due_time','asc')->get();
                 break;
             case "course":
-                $assignments = Assignment::orderBy('course','asc')->orderBy('due_date','asc')->orderBy('due_time','asc')->get();
+                $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                                ->orderBy('course','asc')
+                                ->orderBy('due_date','asc')
+                                ->orderBy('due_time','asc')->get();
                 break;
             case "level":
-                $assignments = Assignment::orderByRaw("FIELD(level, 'Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard')")->orderBy('due_date','asc')->orderBy('due_time','asc')->get();                
-                break;
+                $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                                ->orderByRaw("FIELD(level, 'Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard')")
+                                ->orderBy('due_date','asc')
+                                ->orderBy('due_time','asc')
+                                ->orderByRaw("FIELD(level, 'DOING', 'DONE')")->get();
+                break;                
             case "priority":
-                $assignments = Assignment::orderBy('due_date','asc')
+                $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                                ->orderBy('due_date','asc')
                                 ->orderBy('due_time','asc')
                                 ->orderByRaw("FIELD(level, 'Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard')")
-                                ->orderBy('estimation', 'asc')->get();
+                                ->orderBy('estimation', 'asc')
+                                ->orderByRaw("FIELD(level, 'DOING', 'DONE')")->get();
             default:
-                $assignments = Assignment::orderBy('due_date','asc')->orderBy('due_time','asc')->get();
+            $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                            ->orderBy('due_date','asc')
+                            ->orderBy('due_time','asc')->get();
           }        
         // return view('assignment.index', compact('assignments'));
         return view('assignment.index', ['assignments' => $assignments, 'sortBy' => $sortBy]);
@@ -179,5 +194,18 @@ class AssignmentController extends Controller
         Assignment::where('user_id', $id)->delete();
         return redirect()->route('reset_data')
             ->with('success', 'Assignment Successfully Reset');
+    }
+
+    public function markAsDone($id) {
+        $assignment = Assignment::find($id);        
+        $assignment->status = 'DONE';
+        
+        $user = new User;
+        $user->id = $assignment->user_id;
+        $assignment->user()->associate($user);
+        $assignment->save();         
+        
+        // redirect after add data
+        return redirect()->route('assignment.index');
     }
 }
