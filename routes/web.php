@@ -46,3 +46,5 @@ Route::get('/new-password/{id}', [PageController::class, 'resetPassword'])->name
 Route::get('/calendar', function () {
     return view('calendar');
 })->name('calendar');
+
+Route::get('/assignment?sortBy=level', [AssignmentController::class, 'sortByLevel'])->name('assignment.level');

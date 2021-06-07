@@ -23,10 +23,30 @@ class AssignmentController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
-    {            
+    public function index(Request $request)
+    {             
+        $sortBy = $request->get('sortBy');
         $assignments = Assignment::orderBy('due_date','asc')->orderBy('due_time','asc')->get();
-        return view('assignment.index', compact('assignments'));
+        switch ($sortBy) {
+            case "due_date":
+                $assignments = Assignment::orderBy('due_date','asc')->orderBy('due_time','asc')->get();
+                break;
+            case "course":
+                $assignments = Assignment::orderBy('course','asc')->orderBy('due_date','asc')->orderBy('due_time','asc')->get();
+                break;
+            case "level":
+                $assignments = Assignment::orderByRaw("FIELD(level, 'Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard')")->orderBy('due_date','asc')->orderBy('due_time','asc')->get();                
+                break;
+            case "priority":
+                $assignments = Assignment::orderBy('due_date','asc')
+                                ->orderBy('due_time','asc')
+                                ->orderByRaw("FIELD(level, 'Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard')")
+                                ->orderBy('estimation', 'asc')->get();
+            default:
+                $assignments = Assignment::orderBy('due_date','asc')->orderBy('due_time','asc')->get();
+          }        
+        // return view('assignment.index', compact('assignments'));
+        return view('assignment.index', ['assignments' => $assignments, 'sortBy' => $sortBy]);
     }
 
     /**

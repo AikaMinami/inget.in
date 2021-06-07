@@ -76,20 +76,20 @@
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/about/3.jpg" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2012</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <h4>April - May 2021</h4>
+                                <h4 class="subheading">Developing</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">The idea that we have designed is developed into a website.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/about/4.jpg" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2014</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <h4>June 2021</h4>
+                                <h4 class="subheading">Idea is Releases</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">The Inget.in website that was developed is then released so that it can be used by many people.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
@@ -111,47 +111,35 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">People who was develop this website.</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="assets/assets/img/user.png" alt="" />
                             <h4>Nabilah Argyanti A.</h4>
-                            <p class="text-muted">Coordinator</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <p class="text-muted">Coordinator</p>                            
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="assets/assets/img/user.png" alt="" />
                             <h4>Rimadhani Aula M.</h4>
-                            <p class="text-muted">Graphic Designer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <p class="text-muted">Graphic Designer</p>                            
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="assets/assets/img/user.png" alt="" />
                             <h4>Meuti Zari Annisa</h4>
-                            <p class="text-muted">Programmer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <p class="text-muted">Programmer</p>                           
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="assets/assets/img/user.png" alt="" />
                             <h4>Laila Alief Rasuliana</h4>
-                            <p class="text-muted">Documentator</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <p class="text-muted">Documentator</p>                            
                         </div>
                     </div>
                 </div>
@@ -174,84 +162,73 @@
         <!-- Modal Sign In-->
         <div class="signin-modal modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true" >
             <div class="modal-dialog">
-                <div class="modal-content"  >
-                    <div class="container ">
-                    <div class="card card-signup">
-                    <form class="form" method="POST" action="{{ route('login') }}">
-                        <div class="card-header text-center no-border">
-                            <h3 class="card-title title-up">Sign In</h3>
-                            <div class="social-line">
-                                <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-round">
-                                <i class="fab fa-facebook-square"></i>
-                                </a>
-                                <a href="#pablo" class="btn btn-neutral btn-twitter btn-icon btn-lg btn-round">
-                                <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#pablo" class="btn btn-neutral btn-google btn-icon btn-round">
-                                <i class="fab fa-google-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            @csrf
-                            <div class="input-group no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-user-circle"></i>
-                                    </span>
+                <div class="modal-content">
+                    <div class="container">
+                        <div class="card px-3">
+                            <form class="form" method="POST" action="{{ route('login') }}">
+                                <div class="card-header text-center no-border">
+                                    <h3 class="card-title title-up">Sign In</h3>                            
                                 </div>
-                                <input id="username" type="username" placeholder="Username..." class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-                                    @error('username')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                            </div>                            
+                                <div class="card-body">
+                                @csrf
+                                    <div class="input-group no-border">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-user-circle"></i>
+                                            </span>
+                                        </div>
+                                        <input id="username" type="username" placeholder="Username..." class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                            @error('username')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </div>                            
                             
-                            <div class="input-group no-border">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-lock text_caps-small"></i>
-                                    </span>
-                                </div>
-                                <input id="password" type="password" placeholder="Password..." class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <div class="input-group no-border">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-lock text_caps-small"></i>
+                                            </span>
+                                        </div>
+                                        <input id="password" type="password" placeholder="Password..." class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                            </div>
-                            <br>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </div>
+                                    <br>
                             
-                            <div class="row">
-                                <div class="checkbox col-md-6 my-3">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label for="remember">
-                                        Remember Me
-                                    </label>
-                                </div>
-                                <div class="col-md-6 my-3 text-right">
-                                    @if (Route::has('password.request'))
-                                        <a href="{{ route('email_confirmation') }}">
-                                            Forgot Password
-                                        </a>
-                                    @endif                            
-                                </div>
-                            </div>
-                            <hr>
+                                    <div class="row mx-2 my-3">
+                                        <div class="checkbox col-md-6">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                            <label for="remember">
+                                                Remember Me
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            @if (Route::has('password.request'))
+                                                <a href="{{ route('email_confirmation') }}">
+                                                    Forgot Password
+                                                </a>
+                                            @endif                            
+                                        </div>
+                                    </div>
+                                    <hr>
                             
-                            <div class="text-center">
-                                <p>Dont Have Account? <a href="#signUpModal" data-toggle="modal" data-target="#signUpModal" data-dismiss="modal"> Sign Up</a> Instead</p>
-                            </div>
+                                    <div class="text-center">
+                                        <p>Dont Have Account? <a href="#signUpModal" data-toggle="modal" data-target="#signUpModal" data-dismiss="modal"> Sign Up</a> Instead</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <button type="submit" class="btn btn-primary btn-round btn-lg">
+                                        Sign In
+                                    </button>                            
+                                </div>
+                            </form>
                         </div>
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary btn-round btn-lg">
-                                Sign In
-                            </button>                            
-                        </div>
-                    </form>
-                    </div>
                     </div>
                 </div>
             </div>

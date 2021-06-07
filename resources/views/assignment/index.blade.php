@@ -12,16 +12,17 @@
                 <p>{{ $message }}</p>
             </div>
         @endif
-        <div class="dropdown float-right">
-            <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:30px">
-            &sdot;&sdot;&sdot;
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="">Due Date</a>                                
-                <a class="dropdown-item" href="">Course</a>
-                <a class="dropdown-item" href="">Level</a>
-                <a class="dropdown-item" href="">Priority</a>
-            </div>
+        <div class="d-flex align-items-end flex-column mb-3">
+            <form action="{{ route('assignment.index') }}" class="form-inline align-items-end" method="GET">
+                <p>Sort by:</p>
+                <select class="custom-select ml-3" name="sortBy">                
+                    <option value="due_date" {{ $sortBy == 'due_date' ? 'selected' : '' }}>Due Date</option>
+                    <option value="course" {{ $sortBy == 'course' ? 'selected' : '' }}>Course</option>
+                    <option value="level" {{ $sortBy == 'level' ? 'selected' : '' }}>Level</option>
+                    <option value="priority" {{ $sortBy == 'priority' ? 'selected' : '' }}>Priority</option>
+                </select>
+                <button type="submit" class="btn btn-primary ml-3">Submit</button>
+            </form>
         </div>        
         <div class="row">
             @foreach($assignments as $assignment)
