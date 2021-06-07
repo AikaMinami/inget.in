@@ -18,7 +18,10 @@ class PageController extends Controller
         $user = Auth::user();                
         $todayDate = Carbon::now('GMT+7')->toDateString();
         $todayDay = Carbon::now('GMT+7')->format('l');
-        $assignments = DB::table('assignment')->whereRaw('DATEDIFF(due_date, "' . $todayDate . '") <= 3')->get();
+        $assignments = DB::table('assignment')
+                        ->whereRaw('DATEDIFF(due_date, "' . $todayDate . '") <= 3')
+                        ->orderBy('due_date','asc')
+                        ->orderBy('due_time','asc')->get();
         $schedules = DB::table('schedule')->where('day', '=', $todayDay)->orderBy('start','asc')->get();
         return view('home', ['user' => $user, 
                             'assignments' => $assignments,
