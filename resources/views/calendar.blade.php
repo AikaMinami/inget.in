@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>How to Use Fullcalendar in Laravel 8</title>
-    
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Inget.in</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/assets/img/logo-ingetin.png') }}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
@@ -15,7 +17,7 @@
   
 <div class="container">
     <br />
-    <h1 class="text-center text-primary"><u>How to Use Fullcalendar in Laravel 8</u></h1>
+    <h1 class="text-center text-primary"><u>Calendar</u></h1>
     <br />
 
     <div id="calendar"></div>
