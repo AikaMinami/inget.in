@@ -81,4 +81,9 @@ class PageController extends Controller
     public function calendar() {
         return view('calendar');
     }
+    
+    public function newPassword() {
+        $user = Auth::user();  
+        return view('setting.newPassword', ['user' => $user]);
+    }
 }

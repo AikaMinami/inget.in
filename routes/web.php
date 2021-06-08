@@ -43,5 +43,6 @@ Route::prefix('settings')->group(function() {
     Route::get('/reset-data', [PageController::class, 'settingResetData'])->name('reset_data')->middleware('auth');
     Route::delete('/reset-assignment/{id}', [AssignmentController::class, 'reset_assignment'])->name('reset_assignment');
     Route::delete('/reset-schedule/{id}', [ScheduleController::class, 'reset_schedule'])->name('reset_schedule');
+    Route::get('/new-password', [PageController::class, 'newPassword'])->name('new_password');
 });
 

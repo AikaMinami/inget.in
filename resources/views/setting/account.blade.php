@@ -12,6 +12,11 @@
             </a>
             </li>
             <li>
+            <a href="{{ route('new_password') }}" class="nav-link link-dark">
+                New Password
+            </a>
+            </li>    
+            <li>
             <a href="{{ route('notification') }}" class="nav-link link-dark">
                 Notification
             </a>
