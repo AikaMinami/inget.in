@@ -1,9 +1,9 @@
 @extends('layouts.indexLayout')
 
 @section('content')
-    <div class="container" style="margin-top:7.5%">
+    <div class="container">
         <div class="container border" style="padding:75px"> 
-            <form action="{{ route('new_password', $user->id) }}">
+            <form action="{{ route('reset_password', $user->id) }}">
                 @csrf
                 <label for="new-pass">Input Your New Password</label>
                 <input class="form-control" type="password" placeholder="New Password" name="password" id="new-pass"><br>                    

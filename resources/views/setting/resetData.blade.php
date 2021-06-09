@@ -11,7 +11,7 @@
                 </a>
                 </li>
                 <li>
-                <a href="{{ route('new_password') }}" class="nav-link link-dark">
+                <a href="{{ route('change_password') }}" class="nav-link link-dark">
                     New Password
                 </a>
                 </li>

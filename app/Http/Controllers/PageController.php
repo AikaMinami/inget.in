@@ -58,7 +58,7 @@ class PageController extends Controller
     public function getAccountForResetPassword(Request $request) {
         $user = User::where('email', $request->get('email'))->first();
         if ($user->first()) {
-            return view('newPassword', ['user' => $user]);
+            return view('resetPassword', ['user' => $user]);
         } else {
             return redirect()->route('email_confirmation');
         }
@@ -74,16 +74,11 @@ class PageController extends Controller
             return redirect()->route('home')
                 ->with('success', 'Password Successfully Reset');
         } else {
-            return redirect()->route('new_password');
+            return redirect()->route('reset_password');
         }          
     }
 
     public function calendar() {
         return view('calendar');
-    }
-    
-    public function newPassword() {
-        $user = Auth::user();  
-        return view('setting.newPassword', ['user' => $user]);
-    }
+    }    
 }

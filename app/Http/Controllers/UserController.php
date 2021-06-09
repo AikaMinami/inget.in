@@ -84,20 +84,14 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'username' => 'required',
-            'email' => 'required',
-            'password' => 'required',            
+            'email' => 'required',                     
         ]);
 
         $user = User::where('id', $id)->first();
         $user->name = $request->get('name');
         $user->username = $request->get('username');
-        $user->email = $request->get('email');
-        $current_password = $user->password;           
-        if(!Hash::check($request->get('password'), $current_password))
-        {                                   
-            $user->password = Hash::make($request->get('password'));            
-            $user->save();
-        }        
+        $user->email = $request->get('email');            
+        $user->save();
         
         return redirect()->route('account')
             ->with('success', 'User Successfully Updated');
@@ -120,5 +114,10 @@ class UserController extends Controller
         } else {
             return redirect()->route('account');
         }        
-    }            
+    }
+    
+    public function changePassword() {
+        $user = Auth::user();  
+        return view('setting.changePassword', ['user' => $user]);
+    }
 }

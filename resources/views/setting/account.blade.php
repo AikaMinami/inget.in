@@ -12,7 +12,7 @@
             </a>
             </li>
             <li>
-            <a href="{{ route('new_password') }}" class="nav-link link-dark">
+            <a href="{{ route('change_password') }}" class="nav-link link-dark">
                 New Password
             </a>
             </li>    
@@ -53,11 +53,7 @@
                         <tr>
                             <td style="width:15%"><h4>Email</h4></td>
                             <td style="width:60%"><h4>: {{ $user->email }}</h4></td>                            
-                        </tr>
-                        <tr>
-                            <td style="width:15%"><h4>Password</h4></td>
-                            <td style="width:60%"><h4>: ***************</h4></td>                            
-                        </tr>
+                        </tr>                        
                     </div>
                 </table>
             </div>
@@ -105,11 +101,7 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" name="email" class="form-control" id="email" value="{{ $user->email }}" aria-describedby="email" >
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control" id="password" value="{{ $user->password }}" ariadescribedby="password" >
-                            </div>                                                    
+                            </div>                            
                     </div>
                     <div class="modal-footer">                        
                         <button type="submit" class="btn btn-primary btn-round">Edit</button>

@@ -1,7 +1,7 @@
 @extends('layouts.indexLayout')
 
 @section('content')
-    <div class="container vertical-center" style="margin-top:10%">
+    <div class="container vertical-center">
         <div class="container border" style="padding:75px"> 
             <form action="{{ route('check_email') }}">
                 @csrf

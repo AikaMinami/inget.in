@@ -12,7 +12,7 @@
             </a>
             </li>
             <li>
-            <a href="{{ route('new_password') }}" class="nav-link active">
+            <a href="{{ route('change_password') }}" class="nav-link active">
                 New Password
             </a>
             </li>    
@@ -34,7 +34,7 @@
             <h2>New Password</h2>
             <div class="container" style="margin-top:2rem; margin-bottom:4.9rem">
                 <div class="container" style="padding:75px"> 
-                    <form action="{{ route('new_password', $user->id) }}">
+                    <form action="{{ route('reset_password', $user->id) }}">
                         @csrf
                         <label for="new-pass">Input Your New Password</label>
                         <input class="form-control" type="password" placeholder="New Password" name="password" id="new-pass"><br>                    

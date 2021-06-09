@@ -29,7 +29,7 @@ Route::resource('assignment', AssignmentController::class);
 Route::get('/landing-page', [PageController::class, 'landingPage'])->name('landing_page');
 Route::get('/email-confirmation', [PageController::class, 'emailConfirmation'])->name('email_confirmation');
 Route::get('/check_email', [PageController::class, 'getAccountForResetPassword'])->name('check_email');
-Route::get('/new-password/{id}', [PageController::class, 'resetPassword'])->name('new_password');
+Route::get('/reset-password/{id}', [PageController::class, 'resetPassword'])->name('reset_password');
 Route::get('/', [PageController::class, 'home'])->name('home')->middleware('auth');
 Route::get('/home', [PageController::class, 'home'])->middleware('auth');
 Route::get('/assignment?sortBy=level', [AssignmentController::class, 'sortByLevel'])->name('assignment.level');
@@ -43,6 +43,6 @@ Route::prefix('settings')->group(function() {
     Route::get('/reset-data', [PageController::class, 'settingResetData'])->name('reset_data')->middleware('auth');
     Route::delete('/reset-assignment/{id}', [AssignmentController::class, 'reset_assignment'])->name('reset_assignment');
     Route::delete('/reset-schedule/{id}', [ScheduleController::class, 'reset_schedule'])->name('reset_schedule');
-    Route::get('/new-password', [PageController::class, 'newPassword'])->name('new_password');
+    Route::get('/change-password', [UserController::class, 'changePassword'])->name('change_password');
 });
 
