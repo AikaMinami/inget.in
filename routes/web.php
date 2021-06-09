@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::get('/', [PageController::class, 'home'])->name('home')->middleware('auth
 Route::get('/home', [PageController::class, 'home'])->middleware('auth');
 Route::get('/assignment?sortBy=level', [AssignmentController::class, 'sortByLevel'])->name('assignment.level');
 Route::get('/assignment/done/{id}', [AssignmentController::class, 'markAsDone'])->name('assignment.markAsDone');
-Route::get('/calendar', [PageController::class, 'calendar'])->name('calendar');
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
 Route::prefix('settings')->group(function() {
     Route::redirect('/', '/settings/account')->name('settings');
     Route::get('/account', [PageController::class, 'settingAccount'])->name('account')->middleware('auth');    

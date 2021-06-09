@@ -122,8 +122,15 @@ class AssignmentController extends Controller
      */
     public function show($id)
     {        
-        $assignment = Assignment::find($id);
-        return view('assignment.show', ['assignment' => $assignment]);
+        $assignment = Assignment::find($id);                
+        $due_datetime = Carbon::parse($assignment->due_date . ' ' . $assignment->due_time, 'GMT+7');    
+        $timeRemaining;
+        if (Carbon::parse(Carbon::now('GMT+7'), 'GMT+7') > $due_datetime) {
+            $timeRemaining = gmdate('d:H:i:s', 0);
+        } else {
+            $timeRemaining = Carbon::now('GMT+7')->diffInMinutes($due_datetime);
+        }        
+        return view('assignment.show', ['assignment' => $assignment, 'timeRemaining' => $timeRemaining]);
     }
 
     /**

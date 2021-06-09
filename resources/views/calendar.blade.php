@@ -65,6 +65,45 @@
                 </div>
             </div>
         </div>
-        <script src="{{ asset('assets/js/calendar.js') }}"></script>  
+        <!-- <script src="{{ asset('assets/js/calendar.js') }}"></script>   -->
+        <script>
+            $(document).ready(function() {
+                // page is now ready, initialize the calendar...
+                $('#calendar').fullCalendar({
+                    // put your options and callbacks here                    
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    events : [
+                        @foreach($assignments as $assignment)
+                        {
+                            title : '{{ $assignment->name }}',
+                            start : '{{ $assignment->due_date . " " . $assignment->due_time}}',                            
+                            url : '{{ route('assignment.show', $assignment->id) }}',
+                            backgroundColor : 'rgb(245, 59, 60)'
+                        },
+                        @endforeach                        
+                        @foreach($schedules as $schedule)
+                        {
+                            title: '{{ $schedule->course }}',
+                            start: '{{ $schedule->start }}',
+                            end: '{{ $schedule->end }}', 
+                            @foreach ($days as $key => $value)
+                                @if($key == $schedule->day)
+                                    dow: [ {{ $value }} ],
+                                @endif
+                            @endforeach
+                            url : '{{ route('schedule.index') }}',
+                            backgroundColor : 'rgb(59, 185, 245)'
+                             // Repeat monday and thursday
+                        },   
+                        @endforeach                 
+                    ]
+                })
+            });
+        </script>     
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>        
     </body>
 </html>
