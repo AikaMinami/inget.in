@@ -22,12 +22,12 @@ class SettingController extends Controller
         return view('setting.account', ['user' => $user]);
     }
 
-    public function notification()
-    {        
-        $user = Auth::user();                
-        $notification = Notification::where('user_id', $user->id)->first();                   
-        return view('setting.notification', ['notification' => $notification]);
-    }
+    // public function notification()
+    // {        
+    //     $user = Auth::user();                
+    //     $notification = Notification::where('user_id', $user->id)->first();                   
+    //     return view('setting.notification', ['notification' => $notification]);
+    // }
 
     public function resetData()
     {        

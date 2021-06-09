@@ -15,11 +15,11 @@
                     New Password
                 </a>
                 </li>      
-                <li>
+                <!-- <li>
                 <a href="{{ route('notification') }}" class="nav-link active">
                     Notification
                 </a>
-                </li>
+                </li> -->
                 <li>
                 <a href="{{ route('reset_data') }}" class="nav-link link-dark">
                     Reset Data 

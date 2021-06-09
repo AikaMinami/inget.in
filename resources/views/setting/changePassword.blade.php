@@ -17,9 +17,9 @@
             </a>
             </li>    
             <li>
-            <a href="{{ route('notification') }}" class="nav-link link-dark">
+            <!-- <a href="{{ route('notification') }}" class="nav-link link-dark">
                 Notification
-            </a>
+            </a> -->
             </li>
             <li>
             <a href="{{ route('reset_data') }}" class="nav-link link-dark">
@@ -31,9 +31,9 @@
         
         </div>
         <div class="container col-sm-10">
-            <h2>New Password</h2>
+            <h2>Change Password</h2>
             <div class="container" style="margin-top:2rem; margin-bottom:4.9rem">
-                <div class="container" style="padding:75px"> 
+                <div class="container" style="padding:0 75px 75px 75px"> 
                     <form action="{{ route('reset_password', $user->id) }}">
                         @csrf
                         <label for="new-pass">Input Your New Password</label>
