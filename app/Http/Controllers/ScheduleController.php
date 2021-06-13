@@ -147,13 +147,13 @@ class ScheduleController extends Controller
     {
         Schedule::find($id)->delete();
         return redirect()->route('schedule.index')
-            ->with('success', 'Assignment Successfully Deleted');
+            ->with('success', 'Schedule Successfully Deleted');
     }
 
     public function reset_schedule($id)
     {
         Schedule::where('user_id', $id)->delete();
         return redirect()->route('reset_data')
-            ->with('success', 'Assignment Successfully Deleted');
+            ->with('success', 'Schedule Successfully Deleted');
     }
 }
