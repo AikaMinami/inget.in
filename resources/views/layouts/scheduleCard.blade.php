@@ -45,7 +45,7 @@
             <form action="{{ route('schedule.destroy', $schedule->id) }}" method="POST">
                 @csrf
                 @method('DELETE')                            
-                <a href="{{ route('schedule.destroy', $schedule->id) }}"><button type="submit" class="btn btn-primary">Delete</button></a>
+                <a href="{{ route('schedule.destroy', $schedule->id) }}"><button type="submit" class="btn btn-danger">Delete</button></a>
             </form>                          
         </div>
         </div>

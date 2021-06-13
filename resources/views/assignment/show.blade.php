@@ -18,19 +18,39 @@
             @else
                 <p style="font-size:18px"><b>Submit Location: </b> {{ $assignment->submit_location }}</p>
             @endif
-        @endif
-        <!-- there's icon picture based on it's difficulties -->
-        <img src="{{ asset('assets/assets/img/level/' . $assignment->level . '.png') }}" width=100px alt="{{ $assignment->level }}" style="margin-bottom:20px">
-        <p class="h5 mt-4">Time Remaining: {{ floor($timeRemaining / 1440) }} day(s) {{ floor(($timeRemaining - (floor($timeRemaining / 1440) * 1440)) / 60) }} hour(s) {{ $timeRemaining - floor(floor(($timeRemaining - (floor($timeRemaining / 1440) * 1440)) / 60) * 60)}} minute(s)</p><br>            
-        <div class="d-inline">
-            <form action="{{ route('assignment.destroy', $assignment->id) }}" method="POST">
-                @csrf
-                @method('DELETE')                            
-                <a href="{{ route('assignment.edit', $assignment->id) }}"><button type="button" class="btn btn-info" style="width:100px">Edit</button></a>
-                <a href="{{ route('assignment.destroy', $assignment->id) }}"><button type="submit" class="btn btn-danger" style="width:100px" onclick="return confirm('Are you sure to delete this assignment?')">Delete</button></a>
-            </form>
+        @endif 
+        <img src="{{ asset('assets/assets/img/level/' . $assignment->level . '.png') }}" width=100px alt="{{ $assignment->level }}" style="margin-bottom:20px">        
+        <p class="h5 mt-4">Time Remaining: {{ floor($timeRemaining / 1440) }} day(s) {{ floor(($timeRemaining - (floor($timeRemaining / 1440) * 1440)) / 60) }} hour(s) {{ floor($timeRemaining - (floor($timeRemaining / 1440) * 1440) - (floor(($timeRemaining - (floor($timeRemaining / 1440) * 1440)) / 60) * 60)) }} minute(s)</p><br>            
+        <div class="d-inline">                         
+                <a href="{{ route('assignment.edit', $assignment->id) }}"><button type="button" class="btn btn-info" style="width:100px">Edit</button></a>                
+                <button type="button" class="btn btn-danger" style="width:100px" data-toggle="modal" data-target="#deleteConfirmation{{ $assignment->id }}">Delete</button>
         </div>        
         <br>
     </div>
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmation{{ $assignment->id }}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this assignment?
+            </div>
+            <div class="modal-footer">                        
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+                <form action="{{ route('assignment.destroy', $assignment->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')                            
+                    <a href="{{ route('assignment.destroy', $assignment->id) }}"><button type="submit" class="btn btn-danger">Delete</button></a>
+                </form>                          
+            </div>
+            </div>
+        </div>
+    </div>
+<!-- End of Delete Confirmation Modal -->
 </div>
 @endsection
