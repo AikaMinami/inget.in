@@ -19,7 +19,7 @@
                 </div>
             @endif
             <div class="row align-items-center" >
-                <input type="date" id="asgn-date" name="due_date" value="{{ $assignment->due_date }}">
+                <input type="date" id="asgn-date" name="due_date" class="ml-3" value="{{ $assignment->due_date }}">
                 <p class="mx-3">at</p>
                 <input type="time" id="asgn-hour" name="due_time" value="{{ $assignment->due_time }}"><br>
             </div>

@@ -26,37 +26,43 @@ class AssignmentController extends Controller
     public function index(Request $request)
     {             
         $sortBy = $request->get('sortBy');
-        $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+        $assignments = Assignment::where('user_id', Auth::user()->id)
+                        ->orderByRaw("FIELD(status, 'DOING', 'DONE')")
                         ->orderBy('due_date','asc')
                         ->orderBy('due_time','asc')->get();
         switch ($sortBy) {
             case "due_date":
-                $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                $assignments = Assignment::where('user_id', Auth::user()->id)
+                                ->orderByRaw("FIELD(status, 'DOING', 'DONE')")
                                 ->orderBy('due_date','asc')
                                 ->orderBy('due_time','asc')->get();
                 break;
             case "course":
-                $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                $assignments = Assignment::where('user_id', Auth::user()->id)
+                                ->orderByRaw("FIELD(status, 'DOING', 'DONE')")
                                 ->orderBy('course','asc')
                                 ->orderBy('due_date','asc')
                                 ->orderBy('due_time','asc')->get();
                 break;
             case "level":
-                $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                $assignments = Assignment::where('user_id', Auth::user()->id)
+                                ->orderByRaw("FIELD(status, 'DOING', 'DONE')")
                                 ->orderByRaw("FIELD(level, 'Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard')")
                                 ->orderBy('due_date','asc')
                                 ->orderBy('due_time','asc')
                                 ->orderByRaw("FIELD(level, 'DOING', 'DONE')")->get();
                 break;                
             case "priority":
-                $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+                $assignments = Assignment::where('user_id', Auth::user()->id)
+                                ->orderByRaw("FIELD(status, 'DOING', 'DONE')")
                                 ->orderBy('due_date','asc')
                                 ->orderBy('due_time','asc')
                                 ->orderByRaw("FIELD(level, 'Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard')")
                                 ->orderBy('estimation', 'asc')
                                 ->orderByRaw("FIELD(level, 'DOING', 'DONE')")->get();
             default:
-            $assignments = Assignment::orderByRaw("FIELD(status, 'DOING', 'DONE')")
+            $assignments = Assignment::where('user_id', Auth::user()->id)
+                            ->orderByRaw("FIELD(status, 'DOING', 'DONE')")
                             ->orderBy('due_date','asc')
                             ->orderBy('due_time','asc')->get();
           }        

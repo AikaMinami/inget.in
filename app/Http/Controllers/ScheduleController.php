@@ -25,7 +25,7 @@ class ScheduleController extends Controller
     public function index()
     {
         // $schedules = Schedule::all()->sortBy('start','ASC');                     
-        $schedules = Schedule::orderBy('start','asc')->get();
+        $schedules = Schedule::where('user_id', Auth::user()->id)->orderBy('start','asc')->get();
         return view('schedule.index', compact('schedules'));
     }
 
@@ -154,6 +154,6 @@ class ScheduleController extends Controller
     {
         Schedule::where('user_id', $id)->delete();
         return redirect()->route('reset_data')
-            ->with('success', 'Schedule Successfully Deleted');
+            ->with('success', 'Schedule Successfully Reset');
     }
 }

@@ -17,9 +17,9 @@
                     </ul>
                 </div>
             @endif
-            <div class="row align-items-center" >
-                <input type="date" id="asgn-date" name="due_date" required>
-                <p>at</p>
+            <div class="row align-items-center">
+                <input type="date" id="asgn-date" name="due_date" class="ml-3" required>
+                <p class="mx-3">at</p>
                 <input type="time" id="asgn-hour" name="due_time" required><br>
             </div>
             <input type="text" id="asgn-name" name="name" placeholder="Assignment Name" style="outline: 0; border-width: 0 0 2px; border-color: gray; width:100%; margin:15px 0 15px 0" required>

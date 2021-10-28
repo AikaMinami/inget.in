@@ -23,12 +23,16 @@ class PageController extends Controller
         $todayDate = Carbon::now('GMT+7')->toDateString();
         $todayDay = Carbon::now('GMT+7')->format('l');
         $assignments = DB::table('assignment')
+                        ->where('user_id', Auth::user()->id)
                         ->whereRaw('DATEDIFF(due_date, "' . $todayDate . '") <= 3')
                         ->where('due_date', '>', $todayDate)
                         ->where('status', 'DOING')
                         ->orderBy('due_date','asc')
                         ->orderBy('due_time','asc')->get();
-        $schedules = DB::table('schedule')->where('day', '=', $todayDay)->orderBy('start','asc')->get();
+        $schedules = DB::table('schedule')
+                        ->where('user_id', Auth::user()->id)
+                        ->where('day', '=', $todayDay)
+                        ->orderBy('start','asc')->get();
         return view('home', ['user' => $user, 
                             'assignments' => $assignments,
                             'schedules' => $schedules]);        
