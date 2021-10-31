@@ -30,7 +30,7 @@
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#signInModal" id="btn-sign-in">
                             Sign In
                         </button>                        
                     </ul>
@@ -53,7 +53,7 @@
                 </div>
                 <ul class="timeline">
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="#" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>February 2021</h4>
@@ -63,7 +63,7 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/about/2.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="#" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>March 2021</h4>
@@ -73,7 +73,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/about/3.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="#" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>April - May 2021</h4>
@@ -83,7 +83,7 @@
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/assets/img/about/4.jpg" alt="" /></div>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="#" alt="" /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>June 2021</h4>
@@ -165,7 +165,7 @@
                 <div class="modal-content">
                     <div class="container">
                         <div class="card px-3">
-                            <form class="form" method="POST" action="{{ route('login') }}">
+                            <form class="form" method="POST" action="{{ route('login') }}" id="sign-in-form">
                                 <div class="card-header text-center no-border">
                                     <h3 class="card-title title-up">Sign In</h3>                            
                                 </div>
@@ -234,7 +234,7 @@
             </div>
         </div>
          <!-- Modal Sign Up-->
-         <div class="signup-modal modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true" >
+         {{-- <div class="signup-modal modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true" >
             <div class="modal-dialog">
                 <div class="modal-content"  >
                     <div class="container ">
@@ -322,15 +322,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Contact form JS-->
-        <script src="assets/assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
         <script src="assets/js/scripts.js"></script>
     </body>

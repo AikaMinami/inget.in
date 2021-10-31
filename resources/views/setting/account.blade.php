@@ -60,7 +60,7 @@
         </div>
         <div class="row">
             <div class="col text-center" style="margin-left:200px">
-                <a href="" class="btn btn-primary text-center" style="margin-bottom:0.7rem" data-toggle="modal" data-target="#editAccount">Edit Account</a>
+                <a href="" class="btn btn-primary text-center" style="margin-bottom:0.7rem" data-toggle="modal" data-target="#editAccount" id="btn-edit-account">Edit Account</a>
                 <a href="" class="btn btn-danger text-center" style="margin-bottom:0.7rem" data-toggle="modal" data-target="#deleteAccount">Delete Account</a>
             </div>
         </div>
@@ -87,7 +87,7 @@
                             </ul>
                         </div>
                         @endif
-                        <form method="post" action="{{ route('user.update', $user->id) }}" id="myForm">
+                        <form method="post" action="{{ route('user.update', $user->id) }}" id="account-edit-form">
                             @csrf
                             @method('PUT')
                             <div class="form-group">

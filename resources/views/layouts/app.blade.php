@@ -53,18 +53,17 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav text-uppercase ml-auto" style="align-items:center">
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('home') }}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('assignment.index') }}">Assignment</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('schedule.index') }}">Schedule</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('calendar') }}">Calendar</a></li>
-                            <li class="nav-item">
-                                <img src="{{ asset('assets/assets/img/user.png') }}" width=50px height=50px class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('home') }}" id="nav-home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('assignment.index') }}" id="nav-assignment">Assignment</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('schedule.index') }}" id="nav-schedule">Schedule</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('calendar') }}" id="nav-calendar">Calendar</a></li>
+                            <li class="nav-item" >
+                                <img src="{{ asset('assets/assets/img/user.png') }}" width=50px height=50px class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="nav-dropdown">
                                     <a class="dropdown-item" href="{{ route('settings')}}">Settings</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                        Logout
+                                    <a class="dropdown-item" href="{{ route('logout') }}" id="btn-sign-out"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        Sign Out
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

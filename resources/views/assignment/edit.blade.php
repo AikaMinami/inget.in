@@ -5,7 +5,7 @@
     <h2>Assignment</h2>
     <div class="container border">
         <h4>Due Date</h4>
-        <form method="POST" action="{{ route('assignment.update', $assignment->id) }}" style="margin-bottom:40px">
+        <form method="POST" action="{{ route('assignment.update', $assignment->id) }}" style="margin-bottom:40px" id="edit-assignment-form">
             @csrf
             @method('PUT')
             @if ($errors->any())

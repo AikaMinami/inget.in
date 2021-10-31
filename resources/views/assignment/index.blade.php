@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <a class="btn btn-primary btn-md text-uppercase js-scroll-trigger font-weight-bolder" href="{{ route('assignment.create') }}" style="color:black; font-family:Montserrat;">Create</a>
+        <a class="btn btn-primary btn-md text-uppercase js-scroll-trigger font-weight-bolder" href="{{ route('assignment.create') }}" style="color:black; font-family:Montserrat;" id="add-assignment">Create</a>
     </div>
     <h2>Assignment</h2>
     <div class="container">

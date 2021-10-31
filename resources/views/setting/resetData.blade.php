@@ -37,13 +37,13 @@
             <div class="container row">
                 <label for="resetAssignment" class="col-sm-3 col-form-label"><p style="font-size:16pt; font-family:Montserrat">Assignment</p></label>
                 <div class="col" style="width=50px">
-                    <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#resetAssignment">Reset</button>
+                    <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#resetAssignment" id="btn-reset-assignment">Reset</button>
                 </div>                    
             </div>
             <div class="container row">                
                 <label for="resetSchedule" class="col-sm-3 col-form-label"><p style="font-size:16pt; font-family:Montserrat">Schedule</p></label>
                 <div class="col" style="width=50px">
-                    <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#resetSchedule">Reset</button>
+                    <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#resetSchedule" id="btn-reset-schedule">Reset</button>
                 </div>                    
             </div>
         </div>        
@@ -55,7 +55,7 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Reset Assignment</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-modal-assignment-reset">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -65,9 +65,8 @@
             <div class="modal-footer">                
                 <form action="{{ route('reset_assignment', $user->id) }}" method="POST">
                     @csrf
-                    @method('DELETE')
-                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>              
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    @method('DELETE')                    
+                    <button type="submit" class="btn btn-danger"  id="btn-confirm-reset-assignment">Delete</button>
                 </form>                
             </div>
             </div>
@@ -80,7 +79,7 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Reset Schedule</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-modal-schedule-reset">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -91,7 +90,7 @@
                 <form action="{{ route('reset_schedule', $user->id) }}" method="POST">
                     @csrf
                     @method('DELETE')                    
-                    <button type="submit" class="btn btn-danger">Delete</button>                    
+                    <button type="submit" class="btn btn-danger" id="btn-confirm-reset-schedule">Delete</button>                    
                 </form>                
             </div>
             </div>

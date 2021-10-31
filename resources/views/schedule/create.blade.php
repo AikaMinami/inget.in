@@ -4,7 +4,7 @@
 <div class="container">
     <h2>Create Schedule</h2>
     <div class="container border">
-        <form method="POST" action="{{ route('schedule.store') }}" style="margin-bottom:70px">
+        <form method="POST" action="{{ route('schedule.store') }}" style="margin-bottom:70px" id="create-schedule-form">
             @csrf
             @if ($errors->any())
                 <div class="alert alert-danger">
